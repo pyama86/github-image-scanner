@@ -45,7 +45,7 @@ config["orgs"].each do |o|
           end
   repos.map{|m| m[:name] }.each do |r|
     logger.info "start #{o}/#{r}"
-    HeroQuery = SWAPI::Client.parse <<~GRAPHQL
+    Query = SWAPI::Client.parse <<~GRAPHQL
     query {
               repository(owner: "#{o}", name: "#{r}") {
                   packages(first:100){
@@ -71,7 +71,7 @@ config["orgs"].each do |o|
           }
     GRAPHQL
 
-    g_result = SWAPI::Client.query(HeroQuery)
+    g_result = SWAPI::Client.query(Query)
     result = {}
     begin
       g_result.to_h["data"]["repository"]["packages"]["nodes"].select {|n| n["packageType"] == "DOCKER" }.each do |i|

@@ -29,5 +29,4 @@ jobs:
       - run: |
           cp config.yml.sample /opt/scaner/config.yml
           cd /opt/scaner
-          bundle install
           bundle exec ruby run.rb
