@@ -12,16 +12,11 @@ jobs:
       GITHUB_API: "https://api.github.com/"
     container:
       image: ghcr.io/pyama86/github-image-scaner:latest
-      volumes:
-        - ${{ github.workspace }}:/workspace
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - run: sudo find /__w -name config.yml.sample
-      - run: sudo find /home -name config.yml.sample
-      - run: sudo find /workspace -name config.yml.sample
-      - run: ls  /workspace 
-      - run: find /workspace 
       - run: |
-          cp config.yml.sample config.yml
-          ruby /opt/scaner/run.rb
+          cp config.yml.sample /opt/scaner/config.yml
+          cd /opt/scaner
+          ls -ltr 
+          bundle exec ruby run.rb
