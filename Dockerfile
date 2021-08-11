@@ -1,4 +1,4 @@
-FROM ruby:latest
+FROM ruby:2.7
 RUN mkdir -p /opt/scaner
 COPY Gemfile Gemfile.lock /opt/scaner
 
