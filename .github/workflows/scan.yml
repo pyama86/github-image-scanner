@@ -15,6 +15,8 @@ jobs:
       volumes:
         - ${{ github.workspace }}:/workspace
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - run: sudo find /__w -name config.yml.sample
       - run: sudo find /home -name config.yml.sample
       - run: sudo find /workspace -name config.yml.sample
