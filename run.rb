@@ -37,7 +37,13 @@ client = Octokit::Client.new(
 )
 
 config["orgs"].each do |o|
-  client.organization_repositories(o).map{|m| m[:name] }.each do |r|
+  repos = begin
+            client.organization(o)
+            client.organization_repositories(o)
+          rescue
+            client.repositories(o)
+          end
+  repos.map{|m| m[:name] }.each do |r|
     logger.info "start #{o}/#{r}"
     HeroQuery = SWAPI::Client.parse <<~GRAPHQL
     query {
