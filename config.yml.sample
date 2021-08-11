@@ -1,0 +1,6 @@
+registory_domain: example.com
+orgs:
+- example
+
+ignore_images:
+- example.com/foo/bar:latest
