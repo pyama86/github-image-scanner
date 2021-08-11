@@ -13,7 +13,7 @@ Octokit.configure do |c|
 end
 
 module SWAPI
-  HTTP = GraphQL::Client::HTTP.new(ENV['GITHUB_API'].gsub(/v3\/?/, 'graphql')) do
+  HTTP = GraphQL::Client::HTTP.new(File.join(ENV['GITHUB_API'].gsub(/v3\/?/, ''), 'graphql')) do
     def headers(context)
       h = {
         "User-Agent": "github-image-scaner"

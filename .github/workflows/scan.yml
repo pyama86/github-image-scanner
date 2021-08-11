@@ -1,0 +1,18 @@
+name: ci
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_USER: "pyama86"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_API: "https://api.github.com/"
+    container: ghcr.io/pyama86/github-image-scaner:latest
+    steps:
+      - run: |
+          cp config.yml.sample config.yml
+          ruby /opt/scaner/run.rb
+

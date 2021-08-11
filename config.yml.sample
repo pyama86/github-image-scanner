@@ -1,6 +1,6 @@
-registory_domain: example.com
+registory_domain: ghcr.io
 orgs:
-- example
+- pyama86
 
 ignore_images:
 - example.com/foo/bar:latest
