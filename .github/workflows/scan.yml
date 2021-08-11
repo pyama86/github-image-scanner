@@ -15,6 +15,17 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+
+      - name: Cache Trivy
+        uses: actions/cache@v2
+        with:
+          path: |
+            /opt/scaner/cache
+          key: ${{ runner.os }}
+          restore-keys: |
+            ${{ runner.os }}
+
+
       - run: |
           cp config.yml.sample /opt/scaner/config.yml
           cd /opt/scaner
