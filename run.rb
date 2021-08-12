@@ -71,72 +71,76 @@ config["orgs"].each do |o|
           }
     GRAPHQL
 
-    g_result = SWAPI::Client.query(Query)
+    response = SWAPI::Client.query(Query)
     result = {}
-    begin
-      g_result.to_h["data"]["repository"]["packages"]["nodes"].select {|n| n["packageType"] == "DOCKER" }.each do |i|
-        image_name = "#{config["registory_domain"]}/#{o}/#{r}/#{i["name"]}:#{i["versions"]["nodes"].first["version"]}"
+    if data = response.data
+      begin
+        data.to_h["repository"]["packages"]["nodes"].select {|n| n["packageType"] == "DOCKER" }.each do |i|
+          image_name = "#{config["registory_domain"]}/#{o}/#{r}/#{i["name"]}:#{i["versions"]["nodes"].first["version"]}"
 
-        logger.info "check image name #{image_name}"
+          logger.info "check image name #{image_name}"
 
-        next if config["ignore_images"].find {|i| image_name =~ /#{i}/ }
+          next if config["ignore_images"].find {|i| image_name =~ /#{i}/ }
 
-        image = Docker::Image.create('fromImage' => image_name)
-        vols = []
-        vols << "#{Dir.pwd}/cache:/root/.cache"
-        vols << "/var/run/docker.sock:/var/run/docker.sock"
-        container = ::Docker::Container.create({
-          'Image' => trivy.id,
-          'HostConfig' => {
-            'Binds' => vols,
-          },
-          'Cmd' => [
-            "--ignore-unfixed",
-            "-s",
-            "HIGH,CRITICAL",
-            "--format",
-            "template",
-            "--template",
-           "@contrib/html.tpl",
-             "--exit-code",
-            "1",
-            image_name
-          ]
-        })
+          image = Docker::Image.create('fromImage' => image_name)
+          vols = []
+          vols << "#{Dir.pwd}/cache:/root/.cache"
+          vols << "/var/run/docker.sock:/var/run/docker.sock"
+          container = ::Docker::Container.create({
+            'Image' => trivy.id,
+            'HostConfig' => {
+              'Binds' => vols,
+            },
+            'Cmd' => [
+              "--ignore-unfixed",
+              "-s",
+              "HIGH,CRITICAL",
+              "--format",
+              "template",
+              "--template",
+             "@contrib/html.tpl",
+               "--exit-code",
+              "1",
+              image_name
+            ]
+          })
 
-        container.tap(&:start).attach do |stream, chunk|
-          logger.debug "#{stream} #{chunk}"
-          result[image_name] ||= {}
-          result[image_name][stream] ||= []
-          result[image_name][stream] << chunk
+          container.tap(&:start).attach do |stream, chunk|
+            logger.debug "#{stream} #{chunk}"
+            result[image_name] ||= {}
+            result[image_name][stream] ||= []
+            result[image_name][stream] << chunk
+          end
+
+          result[image_name][:status_code] = container.wait["StatusCode"]
+          container.remove(:force => true)
+          logger.info "check result #{o}/#{r} exit:#{result[image_name][:status_code]}"
         end
 
-        result[image_name][:status_code] = container.wait["StatusCode"]
-        container.remove(:force => true)
-        logger.info "check result #{o}/#{r} exit:#{result[image_name][:status_code]}"
+        next if result.empty? || result.all? {|_,v| v[:status_code] == 0 }
+
+        t = ["# These image has vulnability."]
+        result.each do |k,v|
+          t << v[:stdout]
+        end
+
+        issue_txt = t.join("\n")
+          .gsub(/<head>.+?<\/head>/m, '')
+          .gsub(/<\/?body>/m, '')
+          .gsub(/<\/?html>/m, '')
+          .gsub(/^\d{4}-\d{2}-\d{2}T\d{2}.+$/, '')
+          .gsub(/<!DOCTYPE html>/, '')
+          .gsub(/^\s*$/, '')
+          .gsub(/^\n/, '')
+          .gsub(/^    /m, '')
+
+        logger.info "create issue #{o}/#{r}"
+        client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in docker image", issue_txt)
+      rescue => e
+        logger.error "#{o}/#{r} happend error #{e}"
       end
-
-      next if result.empty? || result.all? {|_,v| v[:status_code] == 0 }
-
-      t = ["# These image has vulnability."]
-      result.each do |k,v|
-        t << v[:stdout]
-      end
-
-      issue_txt = t.join("\n")
-        .gsub(/<head>.+?<\/head>/m, '')
-        .gsub(/<\/?body>/m, '')
-        .gsub(/<\/?html>/m, '')
-        .gsub(/^\d{4}-\d{2}-\d{2}T\d{2}.+$/, '')
-        .gsub(/<!DOCTYPE html>/, '')
-        .gsub(/^\s*$/, '')
-        .gsub(/^\n/, '')
-        .gsub(/^    /m, '')
-
-      logger.info "create issue #{o}/#{r}"
-      client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in docker image", issue_txt)
-    rescue => e
-      logger.error "#{o}/#{r} happend error #{e}"
+    elsif response.errors.any?
+       logger.error response.errors.messages["data"]
     end
   end
 end
