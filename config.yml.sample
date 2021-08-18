@@ -1,4 +1,4 @@
-registory_domain: ghcr.io
+registory_domain: docker.pkg.github.com
 orgs:
 - pyama86
 
