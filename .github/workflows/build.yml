@@ -22,4 +22,4 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: docker.pkg.github.com/pyama86/github-image-scaner:latest
+        tags: docker.pkg.github.com/pyama86/github-image-scaner/scaner:latest
