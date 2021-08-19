@@ -96,6 +96,7 @@ config["orgs"].each do |o|
           },
           'Cmd' => [
             "--ignore-unfixed",
+            "--light",
             "-s",
             "HIGH,CRITICAL",
             "--format",
