@@ -71,9 +71,9 @@ config["orgs"].each do |o|
   GRAPHQL
 
   response = SWAPI::Client.query(Query)
-  result = {}
   if data = response.data
     data.to_h[type]["packages"]["edges"].each do |i|
+      result = {}
       r = i["node"]["repository"]["name"]
       next if i["node"]["versions"]["nodes"].empty?
       begin
