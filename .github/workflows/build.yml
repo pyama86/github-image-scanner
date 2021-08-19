@@ -14,6 +14,11 @@ jobs:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
+        username: pyama
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
         registry: docker.pkg.github.com
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -28,4 +33,4 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: docker.pkg.github.com/pyama86/github-image-scaner/scaner:latest,ghcr.io/pyama86/github-image-scaner:latest
+        tags: docker.pkg.github.com/pyama86/github-image-scaner/scaner:latest,ghcr.io/pyama86/github-image-scaner:latest,pyama/github-image-scaner

@@ -12,7 +12,7 @@ jobs:
       GITHUB_API: "https://api.github.com/"
       RUBYOPT: "-W0"
     container:
-      image: ghcr.io/pyama86/github-image-scaner:latest
+      image: pyama/github-image-scaner:latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
