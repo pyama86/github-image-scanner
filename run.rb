@@ -16,7 +16,7 @@ module SWAPI
   HTTP = GraphQL::Client::HTTP.new(File.join(ENV['GITHUB_API'].gsub(/v3\/?/, ''), 'graphql')) do
     def headers(context)
       h = {
-        "User-Agent": "github-image-scaner"
+        "User-Agent": "github-image-scanner"
       }
       h["Authorization"] = "token #{ENV['GITHUB_TOKEN']}" if ENV['GITHUB_TOKEN']
       h

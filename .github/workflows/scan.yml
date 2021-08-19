@@ -12,7 +12,7 @@ jobs:
       GITHUB_API: "https://api.github.com/"
       RUBYOPT: "-W0"
     container:
-      image: pyama/github-image-scaner:latest
+      image: pyama/github-image-scanner:latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -21,13 +21,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            /opt/scaner/cache
+            /opt/scanner/cache
           key: ${{ runner.os }}
           restore-keys: |
             ${{ runner.os }}
 
 
       - run: |
-          cp config.yml.sample /opt/scaner/config.yml
-          cd /opt/scaner
+          cp config.yml.sample /opt/scanner/config.yml
+          cd /opt/scanner
           bundle exec ruby run.rb
