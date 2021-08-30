@@ -122,9 +122,12 @@ config["orgs"].each do |o|
 
       next if result.empty? || result.all? {|_,v| v[:status_code] == 0 }
 
+      err = []
       t = ["# These images have vulnerabilites."]
+
       result.each do |k,v|
-        t << v[:stdout]
+        t << v[:stdout] if k == :stdout
+        err << v[:stderr] if k == :stderr
       end
 
       issue_txt = t.join("\n")
@@ -136,6 +139,11 @@ config["orgs"].each do |o|
         .gsub(/^\s*$/, '')
         .gsub(/^\n/, '')
         .gsub(/^    /m, '')
+
+
+      if err.compact.size > 0
+        raise err.compact.join("\n")
+      end
 
       logger.info "create issue #{o}/#{r}"
       client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in docker image", issue_txt)
