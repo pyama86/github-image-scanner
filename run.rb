@@ -125,7 +125,8 @@ config["orgs"].each do |o|
       next if result.empty? || result.all? {|_,v| v[:status_code] == 0 }
 
       err = []
-      t = ["# These images has vulnability."]
+      t = ["# These images have vulnerabilites."]
+
       result.each do |k,v|
         t << v[:stdout] if k == :stdout
         err << v[:stderr] if k == :stderr
