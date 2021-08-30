@@ -112,27 +112,20 @@ config["orgs"].each do |o|
         })
 
         container.tap(&:start).attach do |stream, chunk|
-          result[image_name] ||= {}
-          result[image_name][stream] ||= []
-          result[image_name][stream] << chunk
+          result[stream] ||= []
+          result[stream] << chunk
         end
 
-        result[image_name][:status_code] = container.wait["StatusCode"]
+        result[:status_code] = container.wait["StatusCode"]
         container.remove(:force => true)
-        logger.info "check result #{o}/#{r} exit:#{result[image_name][:status_code]}"
+        logger.info "check result #{o}/#{r} exit:#{result[:status_code]}"
       end
 
-      next if result.empty? || result.all? {|_,v| v[:status_code] == 0 }
+      next if result.empty? || result[:status_code] == 0
 
       err = []
-      t = ["# These images have vulnerabilites."]
-
-      result.each do |k,v|
-        t << v[:stdout] if k == :stdout
-        err << v[:stderr] if k == :stderr
-      end
-
-      issue_txt = t.compact.join("\n")
+      issue_txt = "# These images have vulnerabilites.\n"
+      issue_txt << result[:stdout].compact.join("\n")
         .gsub(/<head>.+?<\/head>/m, '')
         .gsub(/<\/?body>/m, '')
         .gsub(/<\/?html>/m, '')
@@ -142,16 +135,18 @@ config["orgs"].each do |o|
         .gsub(/^\n/, '')
         .gsub(/^    /m, '')
 
-      if err.compact.size > 0
+      if result[:stderr] && result[:stderr].size > 0
         raise err.compact.join("\n")
       end
 
+      logger.info issue_txt
+      logger.info result.inspect
       if issue_txt == 'These images have vulnerabilites.'
         raise "sume error happend: #{result.inspect}"
       end
 
       logger.info "create issue #{o}/#{r}"
-      client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in docker image", issue_txt)
+      client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in #{image_name}", issue_txt)
     rescue => e
       logger.error "#{o}/#{r} happend error #{e}"
     end
