@@ -87,7 +87,7 @@ config["orgs"].each do |o|
 
         image = Docker::Image.create('fromImage' => image_name)
         vols = []
-        vols << "#{Dir.pwd}/cache:/root/.cache"
+        vols << "#{Dir.pwd}/cache:/tmp/"
         vols << "/var/run/docker.sock:/var/run/docker.sock"
         container = ::Docker::Container.create({
           'Image' => trivy.id,
@@ -95,6 +95,8 @@ config["orgs"].each do |o|
             'Binds' => vols,
           },
           'Cmd' => [
+            "--cache-dir",
+            "/tmp/",
             "--ignore-unfixed",
             "--light",
             "-s",
@@ -129,7 +131,7 @@ config["orgs"].each do |o|
         err << v[:stderr] if k == :stderr
       end
 
-      issue_txt = t.join("\n")
+      issue_txt = t.compact.join("\n")
         .gsub(/<head>.+?<\/head>/m, '')
         .gsub(/<\/?body>/m, '')
         .gsub(/<\/?html>/m, '')
@@ -151,7 +153,6 @@ config["orgs"].each do |o|
     end
   elsif response.errors.any?
     if response.errors.messages["data"].first =~ /API rate limit exceeded for user ID/
-      puts "redu"
       sleep  60
       redo
     end
