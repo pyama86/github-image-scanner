@@ -146,6 +146,10 @@ config["orgs"].each do |o|
         raise err.compact.join("\n")
       end
 
+      if issue_txt == 'These images have vulnerabilites.'
+        raise "sume error happend: #{result.inspect}"
+      end
+
       logger.info "create issue #{o}/#{r}"
       client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in docker image", issue_txt)
     rescue => e
