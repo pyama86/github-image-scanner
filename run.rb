@@ -142,10 +142,10 @@ config["orgs"].each do |o|
         .gsub(/^\n/, '')
         .gsub(/^    /m, '')
 
-
       if err.compact.size > 0
         raise err.compact.join("\n")
       end
+      logger.info result.inspect
 
       logger.info "create issue #{o}/#{r}"
       client.create_issue("#{o}/#{r}", "#{Date.today.strftime("%Y/%m/%d")} Found vulnerabilities in docker image", issue_txt)
