@@ -122,7 +122,7 @@ config["orgs"].each do |o|
 
       next if result.empty? || result.all? {|_,v| v[:status_code] == 0 }
 
-      t = ["# These images has vulnability."]
+      t = ["# These images have vulnerabilites."]
       result.each do |k,v|
         t << v[:stdout]
       end
