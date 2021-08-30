@@ -87,7 +87,7 @@ config["orgs"].each do |o|
 
         image = Docker::Image.create('fromImage' => image_name)
         vols = []
-        vols << "#{Dir.pwd}/cache:/tmp/"
+        vols << "#{ENV['CACHE_DIR'] || Dir.pwd + "/cache"}:/tmp/"
         vols << "/var/run/docker.sock:/var/run/docker.sock"
         container = ::Docker::Container.create({
           'Image' => trivy.id,
