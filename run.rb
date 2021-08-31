@@ -163,7 +163,7 @@ config['orgs'].each do |o|
   end
 end
 
-if created.size.positive?
+if created.size.positive? && config['report_repo'] 
   client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report",
                       "These containers has vulunabilities\n#{created.join("\n")}")
 end
