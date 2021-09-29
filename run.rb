@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'graphql/client'
 require 'graphql/client/http'
 require 'docker'
