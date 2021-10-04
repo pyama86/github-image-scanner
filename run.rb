@@ -76,7 +76,7 @@ config['orgs'].each do |o|
 
   response = SWAPI::Client.query(Query)
   if data = response.data
-    data.to_h[type]['packages']['edges'].each do |i|
+    Parallel.each(data.to_h[type]['packages']['edges']) do |i|
       result = {}
       r = i['node']['repository']['name']
       next if i['node']['versions']['nodes'].empty?
