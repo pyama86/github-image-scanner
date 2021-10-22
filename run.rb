@@ -5,6 +5,7 @@ require 'octokit'
 require 'yaml'
 require 'logger'
 require 'date'
+require 'parallel'
 
 logger = Logger.new($stdout)
 config = YAML.load_file('./config.yml')
