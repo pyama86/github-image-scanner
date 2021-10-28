@@ -124,6 +124,7 @@ config['orgs'].each do |o|
 
         result[:status_code] = container.wait['StatusCode']
         container.remove(force: true)
+        image.remove(force: true)
         logger.info "check result #{o}/#{r} exit:#{result[:status_code]}"
 
         next if result.empty? || (result[:status_code]).zero?
