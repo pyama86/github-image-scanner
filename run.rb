@@ -5,7 +5,6 @@ require 'octokit'
 require 'yaml'
 require 'logger'
 require 'date'
-require 'parallel'
 
 logger = Logger.new($stdout)
 config = YAML.load_file('./config.yml')
@@ -77,7 +76,7 @@ config['orgs'].each do |o|
 
   response = SWAPI::Client.query(Query)
   if data = response.data
-    Parallel.each(data.to_h[type]['packages']['edges']) do |i|
+    data.to_h[type]['packages']['edges'].each do |i|
       result = {}
       r = i['node']['repository']['name']
       next if i['node']['versions']['nodes'].empty?
