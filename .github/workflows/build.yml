@@ -6,7 +6,7 @@ on:
       - 'master'
 
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -34,3 +34,31 @@ jobs:
       with:
         push: true
         tags: docker.pkg.github.com/pyama86/github-image-scanner/scanner:latest,ghcr.io/pyama86/github-image-scanner:latest,pyama/github-image-scanner
+
+  scan:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_USER: "pyama86"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_API: "https://api.github.com/"
+      RUBYOPT: "-W0"
+    container:
+      image: pyama/github-image-scanner:latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Cache Trivy
+        uses: actions/cache@v2
+        with:
+          path: |
+            /opt/scanner/cache
+          key: ${{ runner.os }}
+          restore-keys: |
+            ${{ runner.os }}
+      - run: |
+          cp config.yml.sample /opt/scanner/config.yml
+          cd /opt/scanner
+          bundle exec ruby run.rb
+
