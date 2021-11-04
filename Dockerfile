@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3
 RUN apt update -qqy && apt upgrade -qqy && apt clean && rm -r /var/lib/apt/lists/*
 RUN mkdir -p /opt/scanner
 ENV LANG=C.UTF-8 \
