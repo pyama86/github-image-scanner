@@ -6,6 +6,10 @@ require 'yaml'
 require 'logger'
 require 'date'
 
+def normalize_issue_url(url)
+  url.gsub(/api\/v3\/repos\//, '')
+end
+
 logger = Logger.new($stdout)
 config = YAML.load_file('./config.yml')
 Octokit.configure do |c|
@@ -148,7 +152,7 @@ config['orgs'].each do |o|
 
         logger.info "create issue #{o}/#{r}"
         issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt)
-        created << "- [ ] [#{image_name}](#{issue.url})"
+        created << "- [ ] [#{image_name}](#{normalize_issue_url(issue.url)})"
       rescue StandardError => e
         logger.error "#{o}/#{r} happend error #{e}"
       end
