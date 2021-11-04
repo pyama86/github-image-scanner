@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4)
+    activesupport (6.1.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -13,8 +13,8 @@ GEM
     docker-api (2.2.0)
       excon (>= 0.47.0)
       multi_json
-    excon (0.85.0)
-    faraday (1.6.0)
+    excon (0.88.0)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -33,11 +33,11 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    graphql (1.12.14)
-    graphql-client (0.16.0)
+    graphql (1.12.18)
+    graphql-client (0.17.0)
       activesupport (>= 3.0)
-      graphql (~> 1.8)
-    i18n (1.8.10)
+      graphql (~> 1.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     minitest (5.14.4)
     multi_json (1.15.0)
@@ -52,7 +52,7 @@ GEM
       faraday (> 0.8, < 2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   ruby

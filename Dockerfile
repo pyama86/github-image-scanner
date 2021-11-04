@@ -1,4 +1,5 @@
 FROM ruby:2.7
+RUN apt update -qqy && apt upgrade -qqy && apt clean && rm -r /var/lib/apt/lists/*
 RUN mkdir -p /opt/scanner
 ENV LANG=C.UTF-8 \
     BUNDLE_JOBS=4 \
