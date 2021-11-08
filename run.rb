@@ -138,7 +138,7 @@ config['orgs'].each do |o|
                                     .gsub(%r{<head>.+?</head>}m, '')
                                     .gsub(%r{</?body>}m, '')
                                     .gsub(%r{</?html>}m, '')
-                                    .gsub(/^\d{4}-\d{2}-\d{2}T\d{2}.+$/, '')
+                                    .gsub(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.[0-9]+Z$/, '')
                                     .gsub(/<!DOCTYPE html>/, '')
                                     .gsub(/^\s*$/, '')
                                     .gsub(/^\n/, '')
