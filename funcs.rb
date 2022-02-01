@@ -8,7 +8,9 @@ end
 
 def scan_image(image_name, image_remove: false)
   @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
-  File.open("./.trivyignore", mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } unless File.exists?("./.trivyignore")
+  ignore_path = ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
+
+  File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } unless File.exists?(ignore_path)
 
   if config['registory_domain']
     @_auth ||= {}
@@ -19,9 +21,9 @@ def scan_image(image_name, image_remove: false)
   result = {}
   image = Docker::Image.create('fromImage' => image_name)
   vols = []
-  vols << "#{ENV['CACHE_DIR'] || "#{Dir.pwd}/cache"}:/tmp/"
-  vols << "#{Dir.pwd}/output:/output/"
-  vols << "#{Dir.pwd}/.trivyignore:/ignore/.trivyignore"
+  vols << "#{ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/cache" : "#{Dir.pwd}/cache"}:/tmp/"
+  vols << "#{ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/output" : "#{Dir.pwd}/output"}:/output/"
+  vols << "#{ignore_path}:/ignore/.trivyignore"
   vols << '/var/run/docker.sock:/var/run/docker.sock'
   container = ::Docker::Container.create({
                                            'Image' => @trivy.id,
