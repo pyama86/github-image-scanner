@@ -16,5 +16,6 @@ RUN --mount=type=cache,target=/opt/scanner/.cache/bundle \
 RUN bundle config --local path vendor/bundle
 
 COPY run.rb /opt/scanner
+COPY funcs.rb /opt/scanner
 
 CMD ["ruby", "/opt/scanner/run.rb"]
