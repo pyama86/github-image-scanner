@@ -57,7 +57,7 @@ def scan_image(image_name, image_remove: false)
   container.wait(120)
   container.remove(force: true)
   image.remove(force: true) if image_remove
-  JSON.parse(File.join(out_path, "result.json"))
+  JSON.parse(File.read(File.join(out_path, "result.json")))
 end
 
 def scan_result_to_issue_md(result, cve_summay={})
