@@ -9,11 +9,13 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ansi (1.5.0)
+    builder (3.2.4)
     concurrent-ruby (1.1.9)
     docker-api (2.2.0)
       excon (>= 0.47.0)
       multi_json
-    excon (0.88.0)
+    excon (0.90.0)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -39,13 +41,21 @@ GEM
       graphql (~> 1.10)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    markdown-tables (1.1.1)
     minitest (5.14.4)
+    minitest-reporters (1.5.0)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     multi_json (1.15.0)
     multipart-post (2.1.1)
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     public_suffix (4.0.6)
+    rake (13.0.6)
+    ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
@@ -61,7 +71,10 @@ PLATFORMS
 DEPENDENCIES
   docker-api
   graphql-client
+  markdown-tables
+  minitest-reporters
   octokit
+  rake
 
 BUNDLED WITH
    2.2.22

@@ -1,3 +1,7 @@
 vendor
 cache
 config.yml
+test.rb
+output
+.trivyignore
+tmp

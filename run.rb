@@ -1,8 +1,7 @@
 require 'graphql/client'
 require 'graphql/client/http'
-require 'docker'
 require 'octokit'
-require 'yaml'
+require './funcs'
 require 'logger'
 require 'date'
 
@@ -11,7 +10,6 @@ def normalize_issue_url(url)
 end
 
 logger = Logger.new($stdout)
-config = YAML.load_file('./config.yml')
 Octokit.configure do |c|
   c.api_endpoint = ENV['GITHUB_API']
 end
@@ -31,18 +29,13 @@ module SWAPI
   Client = GraphQL::Client.new(schema: Schema, execute: HTTP)
 end
 
-trivy = Docker::Image.create('fromImage' => 'aquasec/trivy')
-if config['registory_domain']
-  Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
-                       'serveraddress' => "https://#{config['registory_domain']}")
-end
-
 client = Octokit::Client.new(
   access_token: ENV['GITHUB_TOKEN'],
   auto_paginate: true,
   per_page: 300
 )
 
+cve_summary = {}
 created = []
 config['orgs'].each do |o|
   Object.send(:remove_const, :Query) if Object.constants.include?(:Query)
@@ -81,7 +74,6 @@ config['orgs'].each do |o|
   response = SWAPI::Client.query(Query)
   if data = response.data
     data.to_h[type]['packages']['edges'].each do |i|
-      result = {}
       r = i['node']['repository']['name']
       next if i['node']['versions']['nodes'].empty?
 
@@ -89,72 +81,21 @@ config['orgs'].each do |o|
         imn = i['node']['name']
         v = i['node']['versions']['nodes'].first['version']
         image_name = "#{config['registory_domain']}/#{o}/#{r}/#{imn}:#{v}"
-
         logger.info "check image name #{image_name}"
-
         next if config['ignore_images'].find { |i| image_name =~ /#{i}/ }
 
-        image = Docker::Image.create('fromImage' => image_name)
-        vols = []
-        vols << "#{ENV['CACHE_DIR'] || "#{Dir.pwd}/cache"}:/tmp/"
-        vols << '/var/run/docker.sock:/var/run/docker.sock'
-        container = ::Docker::Container.create({
-                                                 'Image' => trivy.id,
-                                                 'HostConfig' => {
-                                                   'Binds' => vols
-                                                 },
-                                                 'Cmd' => [
-                                                   '--cache-dir',
-                                                   '/tmp/',
-                                                   '--ignore-unfixed',
-                                                   '--light',
-                                                   '-s',
-                                                   'HIGH,CRITICAL',
-                                                   '--format',
-                                                   'template',
-                                                   '--template',
-                                                   '@contrib/html.tpl',
-                                                   '--exit-code',
-                                                   '1',
-                                                   image_name
-                                                 ]
-                                               })
+        result = scan_image(image_name, image_remove: true)
+        next if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
 
-        container.tap(&:start).attach do |stream, chunk|
-          result[stream] ||= []
-          result[stream] << chunk
+        issue_txt, cve_summary = scan_result_to_issue_md(result, cve_summary)
+        if issue_txt
+          logger.info "create issue #{o}/#{r}"
+          issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt)
+          created << "- [ ] [#{image_name}](#{normalize_issue_url(issue.url)})"
         end
-
-        result[:status_code] = container.wait['StatusCode']
-        container.remove(force: true)
-        image.remove(force: true)
-        logger.info "check result #{o}/#{r} exit:#{result[:status_code]}"
-
-        next if result.empty? || (result[:status_code]).zero?
-
-        err = []
-        issue_txt = "# These images have vulnerabilites.\n"
-        issue_txt << result[:stdout].compact.join("\n")
-                                    .gsub(%r{<head>.+?</head>}m, '')
-                                    .gsub(%r{</?body>}m, '')
-                                    .gsub(%r{</?html>}m, '')
-                                    .gsub(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.[0-9]+Z$/, '')
-                                    .gsub(/<!DOCTYPE html>/, '')
-                                    .gsub(/^\s*$/, '')
-                                    .gsub(/^\n/, '')
-                                    .gsub(/^    /m, '')
-
-        raise err.compact.join("\n") if result[:stderr]&.size&.positive?
-
-        logger.info issue_txt
-        logger.info result.inspect
-        raise "sume error happend: #{result.inspect}" if issue_txt == 'These images have vulnerabilites.'
-
-        logger.info "create issue #{o}/#{r}"
-        issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt)
-        created << "- [ ] [#{image_name}](#{normalize_issue_url(issue.url)})"
       rescue StandardError => e
         logger.error "#{o}/#{r} happend error #{e}"
+        logger.error e.backtrace.join("\n")
       end
     end
   elsif response.errors.any?
@@ -166,7 +107,8 @@ config['orgs'].each do |o|
   end
 end
 
-if created.size.positive? && config['report_repo'] 
-  client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report",
-                      "These containers has vulunabilities\n#{created.join("\n")}")
+if created.size.positive? && config['report_repo']
+  issue_txt = "These containers has vulunabilities\n#{created.join("\n")}\n\n"
+  issue_txt << cve_summary_md(cve_summary)
+  client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report", issue_txt)
 end
