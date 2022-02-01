@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.1)
+    activesupport (6.1.4.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -16,33 +16,37 @@ GEM
       excon (>= 0.47.0)
       multi_json
     excon (0.90.0)
-    faraday (1.8.0)
+    faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
       faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
+      faraday-net_http_persistent (~> 1.0)
       faraday-patron (~> 1.0)
       faraday-rack (~> 1.0)
-      multipart-post (>= 1.2, < 3)
+      faraday-retry (~> 1.0)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.3)
+      multipart-post (>= 1.2, < 3)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    graphql (1.12.18)
+    faraday-retry (1.0.3)
+    graphql (1.13.8)
     graphql-client (0.17.0)
       activesupport (>= 3.0)
       graphql (~> 1.10)
-    i18n (1.8.11)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     markdown-tables (1.1.1)
-    minitest (5.14.4)
+    minitest (5.15.0)
     minitest-reporters (1.5.0)
       ansi
       builder
@@ -50,7 +54,7 @@ GEM
       ruby-progressbar
     multi_json (1.15.0)
     multipart-post (2.1.1)
-    octokit (4.21.0)
+    octokit (4.22.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     public_suffix (4.0.6)
@@ -62,11 +66,10 @@ GEM
       faraday (> 0.8, < 2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.5.1)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   ruby
-  x86_64-darwin-19
 
 DEPENDENCIES
   docker-api
@@ -77,4 +80,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   2.2.22
+   1.17.2

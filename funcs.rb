@@ -9,6 +9,7 @@ end
 def scan_image(image_name, image_remove: false)
   @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
   ignore_path = ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
+  out_path = ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/out" : "#{Dir.pwd}/out"
 
   File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } unless File.exists?(ignore_path)
 
@@ -22,7 +23,7 @@ def scan_image(image_name, image_remove: false)
   image = Docker::Image.create('fromImage' => image_name)
   vols = []
   vols << "#{ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/cache" : "#{Dir.pwd}/cache"}:/tmp/"
-  vols << "#{ENV['GITHUB_WORKSPACE'] ? "#{ENV['GITHUB_WORKSPACE']}/output" : "#{Dir.pwd}/output"}:/output/"
+  vols << "#{out_path}:/out/"
   vols << "#{ignore_path}:/ignore/.trivyignore"
   vols << '/var/run/docker.sock:/var/run/docker.sock'
   container = ::Docker::Container.create({
@@ -47,16 +48,16 @@ def scan_image(image_name, image_remove: false)
                                              '--ignorefile',
                                              '/ignore/.trivyignore',
                                              '--output',
-                                             '/output/result.json',
+                                             '/out/result.json',
                                              image_name
                                            ]
                                          })
-  File.delete("./output/result.json")  if File.exists?("./output/result.json")
+  File.delete(File.join(out_path, "result.json"))  if File.exists?(File.join(out_path, "result.json"))
   container.start
   container.wait(120)
   container.remove(force: true)
   image.remove(force: true) if image_remove
-  JSON.parse(File.read("./output/result.json"))
+  JSON.parse(File.join(out_path, "result.json"))
 end
 
 def scan_result_to_issue_md(result, cve_summay={})

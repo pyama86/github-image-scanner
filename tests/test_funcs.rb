@@ -66,6 +66,6 @@ class TestFuncks < Minitest::Test
           ]
         }
     }
-    ist, cve_summary = scan_result_to_issue_md("example.com/foo/bar:latest", ret, cve_summary)
+    ist, cve_summary = scan_result_to_issue_md(ret, cve_summary)
   end
 end
