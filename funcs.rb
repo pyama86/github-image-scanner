@@ -100,7 +100,7 @@ def cve_summary_md(cve_summary)
     [
       "[#{k}](#{v["PrimaryURL"]})",
       v['PkgName'],
-      v['Artifacts'].join("\n")
+      v['Artifacts'].join("<br>")
     ]
   end
   MarkdownTables.make_table(labels, data, is_rows: true)
