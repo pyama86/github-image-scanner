@@ -11,7 +11,7 @@ def scan_image(image_name, image_remove: false)
   ignore_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
   out_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/out" : "#{Dir.pwd}/out"
 
-  File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } unless File.exists?(ignore_path)
+  File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } unless File.exist?(ignore_path)
 
   if config['registory_domain']
     @_auth ||= {}
@@ -32,7 +32,6 @@ def scan_image(image_name, image_remove: false)
                                              'Binds' => vols
                                            },
                                            'Cmd' => [
-                                             '--quiet',
                                              '--cache-dir',
                                              '/tmp/',
                                              'image',
@@ -54,6 +53,8 @@ def scan_image(image_name, image_remove: false)
                                          })
   File.delete(File.join(out_path, "result.json"))  if File.exists?(File.join(out_path, "result.json"))
   container.start
+  container.streaming_logs(stdout: true, stderr: true) { |_, chunk| puts chunk.chomp }
+
   container.wait(120)
   container.remove(force: true)
   image.remove(force: true) if image_remove
