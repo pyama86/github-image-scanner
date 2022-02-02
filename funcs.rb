@@ -1,63 +1,83 @@
 require 'docker'
 require 'yaml'
 require 'markdown-tables'
-
+require 'fileutils'
 def config
   @_config ||= YAML.load_file('./config.yml')
 end
 
-def scan_image(image_name, image_remove: false)
-  @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
-  ignore_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
-  out_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/out" : "#{Dir.pwd}/out"
-
-  File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } unless File.exist?(ignore_path)
-
-  if config['registory_domain']
-    @_auth ||= {}
-    @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
-                         'serveraddress' => "https://#{config['registory_domain']}")
+def which(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each do |ext|
+      exe = File.join(path, "#{cmd}#{ext}")
+      return exe if File.executable?(exe) && !File.directory?(exe)
+    end
   end
+  nil
+end
 
+def scan_image(image_name, image_remove: false)
+  cache_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/cache" : "#{Dir.pwd}/cache"
+  out_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/out" : "#{Dir.pwd}/out"
+  ignore_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
+
+  FileUtils.mkdir_p(out_path)
+
+  unless File.exist?(ignore_path)
+    File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } 
+  end
   result = {}
-  image = Docker::Image.create('fromImage' => image_name)
-  vols = []
-  vols << "#{ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/cache" : "#{Dir.pwd}/cache"}:/tmp/"
-  vols << "#{out_path}:/out/"
-  vols << "#{ignore_path}:/ignore/.trivyignore"
-  vols << '/var/run/docker.sock:/var/run/docker.sock'
-  container = ::Docker::Container.create({
-                                           'Image' => @trivy.id,
-                                           'HostConfig' => {
-                                             'Binds' => vols
-                                           },
-                                           'Cmd' => [
-                                             '--cache-dir',
-                                             '/tmp/',
-                                             'image',
-                                             '--ignore-unfixed',
-                                             '--no-progress',
-                                             '--light',
-                                             '-s',
-                                             'HIGH,CRITICAL',
-                                             '--format',
-                                             'json',
-                                             '--exit-code',
-                                             '1',
-                                             '--ignorefile',
-                                             '/ignore/.trivyignore',
-                                             '--output',
-                                             '/out/result.json',
-                                             image_name
-                                           ]
-                                         })
-  File.delete(File.join(out_path, "result.json"))  if File.exists?(File.join(out_path, "result.json"))
-  container.start
-  container.streaming_logs(stdout: true, stderr: true) { |_, chunk| puts chunk.chomp }
+  cmd = [
+    '--cache-dir',
+    './cache',
+    'image',
+    '--ignore-unfixed',
+    '--no-progress',
+    '-s',
+    'HIGH,CRITICAL',
+    '--format',
+    'json',
+    '--exit-code',
+    '1',
+    '--ignorefile',
+    '.trivyignore',
+    '--output',
+    './out/result.json',
+    image_name
+  ]
 
-  container.wait(120)
-  container.remove(force: true)
-  image.remove(force: true) if image_remove
+  File.delete(File.join(out_path, "result.json"))  if File.exists?(File.join(out_path, "result.json"))
+  if which('trivy')
+    system("trivy #{cmd.join(' ')}")
+  else
+    @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
+    if config['registory_domain']
+      @_auth ||= {}
+      @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
+                           'serveraddress' => "https://#{config['registory_domain']}")
+    end
+
+    image = Docker::Image.create('fromImage' => image_name)
+    vols = []
+    vols << "#{cache_path}:/opt/cache/"
+    vols << "#{out_path}:/opt/out/"
+    vols << "#{ignore_path}:/opt/.trivyignore"
+    vols << '/var/run/docker.sock:/var/run/docker.sock'
+    container = ::Docker::Container.create({
+                                             'Image' => @trivy.id,
+                                             'WorkDir' => "/opt",
+                                             'HostConfig' => {
+                                               'Binds' => vols
+                                             },
+                                             'Cmd' => cmd                                           })
+    container.start
+    container.streaming_logs(stdout: true, stderr: true) { |_, chunk| puts chunk.chomp }
+
+    container.wait(120)
+    container.remove(force: true)
+    image.remove(force: true) if image_remove
+  end
   JSON.parse(File.read(File.join(out_path, "result.json")))
 end
 
