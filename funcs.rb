@@ -88,6 +88,7 @@ def scan_result_to_issue_md(result, cve_summay={})
   labels = ['target', 'type', 'name', 'path', 'installed', 'fixed', 'cve']
   data = []
   result['Results'].each do |r|
+    next unless r["Vulnerabilities"]
     data.concat(r["Vulnerabilities"].map do |v|
       cve_summay[v['VulnerabilityID']] ||= {}
 
