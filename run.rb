@@ -90,7 +90,7 @@ config['orgs'].each do |o|
         issue_txt, cve_summary = scan_result_to_issue_md(result, cve_summary)
         if issue_txt
           logger.info "create issue #{o}/#{r}"
-          issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt)
+          issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt.slice(0, 65500))
           created << "- [ ] [#{image_name}](#{normalize_issue_url(issue.url)})"
         end
       rescue StandardError => e
@@ -110,5 +110,5 @@ end
 if created.size.positive? && config['report_repo']
   issue_txt = "These containers has vulunabilities\n#{created.join("\n")}\n\n"
   issue_txt << cve_summary_md(cve_summary)
-  client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report", issue_txt)
+  client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report", issue_txt.slice(0, 65500))
 end
