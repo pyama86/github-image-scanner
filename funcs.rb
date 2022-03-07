@@ -81,6 +81,10 @@ def scan_image(image_name, image_remove: false)
   JSON.parse(File.read(File.join(out_path, "result.json")))
 end
 
+# Trivy Scan Result JSON to Markdown Report
+# @param result [Hash] Trivy Scan Result JSON
+# @param cve_summary [Hash]
+# @return [Array]
 def scan_result_to_issue_md(result, cve_summay={})
   return [nil, cve_summay] if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
 
@@ -89,6 +93,7 @@ def scan_result_to_issue_md(result, cve_summay={})
   data = []
   result['Results'].each do |r|
     next unless r["Vulnerabilities"]
+
     data.concat(r["Vulnerabilities"].map do |v|
       cve_summay[v['VulnerabilityID']] ||= {}
 
@@ -109,7 +114,7 @@ def scan_result_to_issue_md(result, cve_summay={})
         v.fetch("PkgPath", "-"),
         v["InstalledVersion"],
         v["FixedVersion"],
-        "[#{v["VulnerabilityID"]}](#{v["PrimaryURL"]})"
+        "[#{v['VulnerabilityID']}](#{v['PrimaryURL']})"
       ]
     end)
   end
@@ -117,16 +122,18 @@ def scan_result_to_issue_md(result, cve_summay={})
   [issue_txt, cve_summay]
 end
 
-
+# @param cve_summary [Hash]
+# @return [String]
 def cve_summary_md(cve_summary)
   labels = ['cve', 'name', 'affected images']
 
-  data = cve_summary.map do |k,v|
+  data = cve_summary.map do |k, v|
     [
-      "[#{k}](#{v["PrimaryURL"]})",
+      "[#{k}](#{v['PrimaryURL']})",
       v['PkgName'],
       v['Artifacts'].join("<br>")
     ]
   end
+
   MarkdownTables.make_table(labels, data, is_rows: true)
 end
