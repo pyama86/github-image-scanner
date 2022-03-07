@@ -84,8 +84,9 @@ end
 # Trivy Scan Result JSON to Markdown Report
 # @param result [Hash] Trivy Scan Result JSON
 # @param cve_summary [Hash]
+# @param ignore_vulnerabilities [Array]
 # @return [Array]
-def scan_result_to_issue_md(result, cve_summay={})
+def scan_result_to_issue_md(result, cve_summay={}, ignore_vulnerabilities=[])
   return [nil, cve_summay] if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
 
   issue_txt = "# These images have vulnerabilites.\n"
@@ -94,7 +95,9 @@ def scan_result_to_issue_md(result, cve_summay={})
   result['Results'].each do |r|
     next unless r["Vulnerabilities"]
 
-    data.concat(r["Vulnerabilities"].map do |v|
+    vulnerabilites = r["Vulnerabilities"].map do |v|
+      next if ignore_vulnerabilities.include? v['VulnerabilityID']
+
       cve_summay[v['VulnerabilityID']] ||= {}
 
       cve_summay[v['VulnerabilityID']]['Type'] = r['Type']
@@ -116,8 +119,11 @@ def scan_result_to_issue_md(result, cve_summay={})
         v["FixedVersion"],
         "[#{v['VulnerabilityID']}](#{v['PrimaryURL']})"
       ]
-    end)
+    end
+
+    data.concat(vulnerabilites.compact)
   end
+
   issue_txt << MarkdownTables.make_table(labels, data, is_rows: true)
   [issue_txt, cve_summay]
 end
