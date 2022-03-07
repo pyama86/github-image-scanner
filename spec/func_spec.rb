@@ -17,26 +17,25 @@ describe 'func' do
       end
 
       describe 'interface test' do
-        let(:cve) { "CVE-2021-3995" }
+        let(:cve_summary) {
+          _, cve_summary = scan_result_to_issue_md(result, {})
+          cve_summary["CVE-2021-3995"]
+        }
 
         it 'has Artifacts' do
-          _, cve_summary = scan_result_to_issue_md(result, {})
-          expect(cve_summary[cve]).to have_key("Artifacts")
+          expect(cve_summary).to have_key("Artifacts")
         end
 
         it 'has PkgName' do
-          _, cve_summary = scan_result_to_issue_md(result, {})
-          expect(cve_summary[cve]).to have_key("PkgName")
+          expect(cve_summary).to have_key("PkgName")
         end
 
         it 'has PrimaryURL' do
-          _, cve_summary = scan_result_to_issue_md(result, {})
-          expect(cve_summary[cve]).to have_key("PrimaryURL")
+          expect(cve_summary).to have_key("PrimaryURL")
         end
 
         it 'has Type' do
-          _, cve_summary = scan_result_to_issue_md(result, {})
-          expect(cve_summary[cve]).to have_key("Type")
+          expect(cve_summary).to have_key("Type")
         end
       end
     end
