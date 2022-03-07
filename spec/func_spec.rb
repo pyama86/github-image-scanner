@@ -1,14 +1,8 @@
 describe 'func' do
+  let(:result) {
+    testdata("trivy-results/result.json")
+  }
   describe '#scan_result_to_issue_md' do
-    let(:result) {
-      testdata("trivy-results/result.json")
-    }
-
-    before {
-      object = Object.new
-      allow(object).to receive(:scan_image).and_return(result)
-    }
-
     describe 'Return values test' do
       it 'include vulnerability markdown table in issue text' do
         expected_text = "|os|debian|bsdutils|-|2.36.1-8|2.36.1-8+deb11u1|[CVE-2021-3995](https://avd.aquasec.com/nvd/cve-2021-3995)|\n|os|debian|bsdutils|-|2.36.1-8|2.36.1-8+deb11u1|[CVE-2021-3996](https://avd.aquasec.com/nvd/cve-2021-3996)|"
@@ -45,6 +39,17 @@ describe 'func' do
           expect(cve_summary[cve]).to have_key("Type")
         end
       end
+    end
+  end
+
+  describe '#cve_summary_md' do
+    let(:cve_summary) {
+      _, cve_summary = scan_result_to_issue_md(result, {})
+      cve_summary
+    }
+
+    it 'to be markdown table' do
+      expect(cve_summary_md(cve_summary)).to include('|[CVE-2021-3995](https://avd.aquasec.com/nvd/cve-2021-3995)|uuid-dev|python:3.6|')
     end
   end
 end
