@@ -1,0 +1,3274 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "python:3.6",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "debian",
+      "Name": "11.2"
+    },
+    "ImageID": "sha256:54260638d07c5e3ad24c6e21fc889abbc8486a27634c0892086ff71f3f44b104",
+    "DiffIDs": [
+      "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce",
+      "sha256:31892cc314cb1993ba1b8eb5f3002c4e9f099a9237af0d03d1893c6fcc559aab",
+      "sha256:8bf42db0de72f74f4ef0c1d1743f5d54efc3491ee38f4af6d914a6032148b78e",
+      "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc",
+      "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0",
+      "sha256:1e18e7e1fcc24ce3ca682c184fa27c1c240d18d1c456d593acc95758b92c404f",
+      "sha256:3e607d59ef9f20681f8b995bffdf17269bac7d057fe76f20c9ff6ce70dc0604e",
+      "sha256:8ba9f690e8ba0f49322cce69e0daa2a92993c24f26d3d1816ba621e47352be62",
+      "sha256:aa4c808c19f68799c8171deec506a25717fe1e9c460c3747b6fa978679867655"
+    ],
+    "RepoTags": [
+      "python:3.6"
+    ],
+    "RepoDigests": [
+      "python@sha256:f8652afaf88c25f0d22354d547d892591067aa4026a7fa9a6819df9f300af6fc"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "container": "935a2a69737e23abbaf953f50a3d601203e99b8efa69b762701f30133871f600",
+      "created": "2021-12-21T12:04:32.060662995Z",
+      "docker_version": "20.10.7",
+      "history": [
+        {
+          "created": "2021-12-21T01:22:32.265462484Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:c03517c5ddbed4053165bfdf984b27a006fb5f533ca80b5798232d96df221440 in / "
+        },
+        {
+          "created": "2021-12-21T01:22:32.873985233Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"bash\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T01:51:53.7311687Z",
+          "created_by": "/bin/sh -c set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tcurl \t\tnetbase \t\twget \t; \trm -rf /var/lib/apt/lists/*"
+        },
+        {
+          "created": "2021-12-21T01:51:59.429028015Z",
+          "created_by": "/bin/sh -c set -ex; \tif ! command -v gpg \u003e /dev/null; then \t\tapt-get update; \t\tapt-get install -y --no-install-recommends \t\t\tgnupg \t\t\tdirmngr \t\t; \t\trm -rf /var/lib/apt/lists/*; \tfi"
+        },
+        {
+          "created": "2021-12-21T01:52:16.927269939Z",
+          "created_by": "/bin/sh -c apt-get update \u0026\u0026 apt-get install -y --no-install-recommends \t\tgit \t\tmercurial \t\topenssh-client \t\tsubversion \t\t\t\tprocps \t\u0026\u0026 rm -rf /var/lib/apt/lists/*"
+        },
+        {
+          "created": "2021-12-21T01:53:06.306923119Z",
+          "created_by": "/bin/sh -c set -ex; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tautoconf \t\tautomake \t\tbzip2 \t\tdpkg-dev \t\tfile \t\tg++ \t\tgcc \t\timagemagick \t\tlibbz2-dev \t\tlibc6-dev \t\tlibcurl4-openssl-dev \t\tlibdb-dev \t\tlibevent-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tlibglib2.0-dev \t\tlibgmp-dev \t\tlibjpeg-dev \t\tlibkrb5-dev \t\tliblzma-dev \t\tlibmagickcore-dev \t\tlibmagickwand-dev \t\tlibmaxminddb-dev \t\tlibncurses5-dev \t\tlibncursesw5-dev \t\tlibpng-dev \t\tlibpq-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tlibtool \t\tlibwebp-dev \t\tlibxml2-dev \t\tlibxslt-dev \t\tlibyaml-dev \t\tmake \t\tpatch \t\tunzip \t\txz-utils \t\tzlib1g-dev \t\t\t\t$( \t\t\tif apt-cache show 'default-libmysqlclient-dev' 2\u003e/dev/null | grep -q '^Version:'; then \t\t\t\techo 'default-libmysqlclient-dev'; \t\t\telse \t\t\t\techo 'libmysqlclient-dev'; \t\t\tfi \t\t) \t; \trm -rf /var/lib/apt/lists/*"
+        },
+        {
+          "created": "2021-12-21T08:11:50.062766781Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T08:11:50.313900688Z",
+          "created_by": "/bin/sh -c #(nop)  ENV LANG=C.UTF-8",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T11:57:17.613387922Z",
+          "created_by": "/bin/sh -c apt-get update \u0026\u0026 apt-get install -y --no-install-recommends \t\tlibbluetooth-dev \t\ttk-dev \t\u0026\u0026 rm -rf /var/lib/apt/lists/*"
+        },
+        {
+          "created": "2021-12-21T11:57:17.956855165Z",
+          "created_by": "/bin/sh -c #(nop)  ENV GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T11:57:18.225764348Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PYTHON_VERSION=3.6.15",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T12:04:20.370173875Z",
+          "created_by": "/bin/sh -c set -ex \t\t\u0026\u0026 wget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\" \t\u0026\u0026 wget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\" \t\u0026\u0026 export GNUPGHOME=\"$(mktemp -d)\" \t\u0026\u0026 gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\" \t\u0026\u0026 gpg --batch --verify python.tar.xz.asc python.tar.xz \t\u0026\u0026 { command -v gpgconf \u003e /dev/null \u0026\u0026 gpgconf --kill all || :; } \t\u0026\u0026 rm -rf \"$GNUPGHOME\" python.tar.xz.asc \t\u0026\u0026 mkdir -p /usr/src/python \t\u0026\u0026 tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz \t\u0026\u0026 rm python.tar.xz \t\t\u0026\u0026 cd /usr/src/python \t\u0026\u0026 gnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\" \t\u0026\u0026 ./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-optimizations \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-system-expat \t\t--with-system-ffi \t\t--without-ensurepip \t\u0026\u0026 make -j \"$(nproc)\" \t\tPROFILE_TASK='-m test.regrtest --pgo \t\t\ttest_array \t\t\ttest_base64 \t\t\ttest_binascii \t\t\ttest_binhex \t\t\ttest_binop \t\t\ttest_bytes \t\t\ttest_c_locale_coercion \t\t\ttest_class \t\t\ttest_cmath \t\t\ttest_codecs \t\t\ttest_compile \t\t\ttest_complex \t\t\ttest_csv \t\t\ttest_decimal \t\t\ttest_dict \t\t\ttest_float \t\t\ttest_fstring \t\t\ttest_hashlib \t\t\ttest_io \t\t\ttest_iter \t\t\ttest_json \t\t\ttest_long \t\t\ttest_math \t\t\ttest_memoryview \t\t\ttest_pickle \t\t\ttest_re \t\t\ttest_set \t\t\ttest_slice \t\t\ttest_struct \t\t\ttest_threading \t\t\ttest_time \t\t\ttest_traceback \t\t\ttest_unicode \t\t' \t\u0026\u0026 make install \t\u0026\u0026 rm -rf /usr/src/python \t\t\u0026\u0026 find /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \\) \\) \t\t\t-o \\( -type f -a -name 'wininst-*.exe' \\) \t\t\\) -exec rm -rf '{}' + \t\t\u0026\u0026 ldconfig \t\t\u0026\u0026 python3 --version"
+        },
+        {
+          "created": "2021-12-21T12:04:21.673543722Z",
+          "created_by": "/bin/sh -c cd /usr/local/bin \t\u0026\u0026 ln -s idle3 idle \t\u0026\u0026 ln -s pydoc3 pydoc \t\u0026\u0026 ln -s python3 python \t\u0026\u0026 ln -s python3-config python-config"
+        },
+        {
+          "created": "2021-12-21T12:04:21.922052074Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PYTHON_PIP_VERSION=21.2.4",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T12:04:22.205365902Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T12:04:22.458775192Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T12:04:22.696602015Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309",
+          "empty_layer": true
+        },
+        {
+          "created": "2021-12-21T12:04:31.726633225Z",
+          "created_by": "/bin/sh -c set -ex; \t\twget -O get-pip.py \"$PYTHON_GET_PIP_URL\"; \techo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -; \t\tpython get-pip.py \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t\"pip==$PYTHON_PIP_VERSION\" \t\t\"setuptools==$PYTHON_SETUPTOOLS_VERSION\" \t; \tpip --version; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \t\t\t\\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' \\) \\) \t\t\\) -exec rm -rf '{}' +; \trm -f get-pip.py"
+        },
+        {
+          "created": "2021-12-21T12:04:32.060662995Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"python3\"]",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce",
+          "sha256:31892cc314cb1993ba1b8eb5f3002c4e9f099a9237af0d03d1893c6fcc559aab",
+          "sha256:8bf42db0de72f74f4ef0c1d1743f5d54efc3491ee38f4af6d914a6032148b78e",
+          "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc",
+          "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0",
+          "sha256:1e18e7e1fcc24ce3ca682c184fa27c1c240d18d1c456d593acc95758b92c404f",
+          "sha256:3e607d59ef9f20681f8b995bffdf17269bac7d057fe76f20c9ff6ce70dc0604e",
+          "sha256:8ba9f690e8ba0f49322cce69e0daa2a92993c24f26d3d1816ba621e47352be62",
+          "sha256:aa4c808c19f68799c8171deec506a25717fe1e9c460c3747b6fa978679867655"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "python3"
+        ],
+        "Env": [
+          "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
+          "PYTHON_VERSION=3.6.15",
+          "PYTHON_PIP_VERSION=21.2.4",
+          "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+          "PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309"
+        ],
+        "Image": "sha256:d4d737e99aa0a93ead84046b66b3218fc89c845ed9d101e9121a0a609233854e"
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "python:3.6 (debian 11.2)",
+      "Class": "os-pkgs",
+      "Type": "debian",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "bsdutils",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "bsdutils",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libblkid-dev",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libblkid-dev",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libblkid1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libblkid1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22822",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22822",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in addBinding in xmlparse.c",
+          "Description": "addBinding in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22822",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22822",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22822",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22823",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22823",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in build_model in xmlparse.c",
+          "Description": "build_model in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22823",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22823",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22823",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22824",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22824",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in defineAttribute in xmlparse.c",
+          "Description": "defineAttribute in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22824",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22824",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22824",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-23852",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-23852",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in function XML_GetBuffer",
+          "Description": "Expat (aka libexpat) before 2.4.4 has a signed integer overflow in XML_GetBuffer, for configurations with a nonzero XML_CONTEXT_BYTES.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2022-23852",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852",
+            "https://github.com/libexpat/libexpat/pull/550",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-23852",
+            "https://security.netapp.com/advisory/ntap-20220217-0001/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-24T02:15:00Z",
+          "LastModifiedDate": "2022-02-25T18:52:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-23990",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-23990",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in the doProlog function",
+          "Description": "Expat (aka libexpat) before 2.4.4 has an integer overflow in the doProlog function.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2022-23990",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23990",
+            "https://github.com/libexpat/libexpat/pull/551",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/34NXVL2RZC2YZRV74ZQ3RNFB7WCEUP7D/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R7FF2UH7MPXKTADYSJUAHI2Y5UHBSHUH/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-23990",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-26T19:15:00Z",
+          "LastModifiedDate": "2022-02-25T18:53:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25235",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25235",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: malformed 2- and 3-byte UTF-8 sequences can lead to arbitrary code execution",
+          "Description": "xmltok_impl.c in Expat (aka libexpat) before 2.4.5 lacks certain validation of encoding, such as checks for whether a UTF-8 character is valid in a certain context.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-116"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25235",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25235",
+            "https://github.com/libexpat/libexpat/pull/562",
+            "https://github.com/libexpat/libexpat/pull/562/commits/367ae600b48d74261bbc339b17e9318424049791 (fix)",
+            "https://github.com/libexpat/libexpat/pull/562/commits/97cfdc3fa7dca759880d81e371901f4620279106 (tests)",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25235",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-16T01:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25236",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25236",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: namespace-separator characters in \"xmlns[:prefix]\" attribute values can lead to arbitrary code execution",
+          "Description": "xmlparse.c in Expat (aka libexpat) before 2.4.5 allows attackers to insert namespace-separator characters into namespace URIs.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-668"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25236",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25236",
+            "https://github.com/libexpat/libexpat/pull/561",
+            "https://github.com/libexpat/libexpat/pull/561/commits/2de077423fb22750ebea599677d523b53cb93b1d (test)",
+            "https://github.com/libexpat/libexpat/pull/561/commits/a2fe525e660badd64b6c557c2b1ec26ddc07f6e4 (fix)",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25236",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-16T01:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25315",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25315",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in storeRawNames()",
+          "Description": "In Expat (aka libexpat) before 2.4.5, there is an integer overflow in storeRawNames.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25315",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://github.com/libexpat/libexpat/pull/559",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25315",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-18T05:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45960",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45960",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Large number of prefixed XML attributes on a single tag can crash libexpat",
+          "Description": "In Expat (aka libexpat) before 2.4.3, a left shift by 29 (or more) places in the storeAtts function in xmlparse.c can lead to realloc misbehavior (e.g., allocating too few bytes, or only freeing memory).",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:S/C:C/I:C/A:C",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 9,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2021-45960",
+            "https://bugzilla.mozilla.org/show_bug.cgi?id=1217609",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45960",
+            "https://github.com/libexpat/libexpat/issues/531",
+            "https://github.com/libexpat/libexpat/pull/534",
+            "https://github.com/libexpat/libexpat/pull/534/commits/0adcb34c49bee5b19bd29b16a578c510c23597ea",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45960",
+            "https://security.netapp.com/advisory/ntap-20220121-0004/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-01T19:15:00Z",
+          "LastModifiedDate": "2022-02-14T12:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-46143",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-46143",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in doProlog in xmlparse.c",
+          "Description": "In doProlog in xmlparse.c in Expat (aka libexpat) before 2.4.3, an integer overflow exists for m_groupSize.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2021-46143",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46143",
+            "https://github.com/libexpat/libexpat/issues/532",
+            "https://github.com/libexpat/libexpat/pull/538",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-46143",
+            "https://security.netapp.com/advisory/ntap-20220121-0006/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-06T04:15:00Z",
+          "LastModifiedDate": "2022-02-25T18:42:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22825",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22825",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in lookup in xmlparse.c",
+          "Description": "lookup in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22825",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22825",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22825",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:50:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22826",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22826",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in nextScaffoldPart in xmlparse.c",
+          "Description": "nextScaffoldPart in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22826",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22826",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22826",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:51:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22827",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22827",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in storeAtts in xmlparse.c",
+          "Description": "storeAtts in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22827",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22827",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22827",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:50:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25314",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25314",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in copyString()",
+          "Description": "In Expat (aka libexpat) before 2.4.5, there is an integer overflow in copyString.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V2Score": 5,
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25314",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25314",
+            "https://github.com/libexpat/libexpat/pull/560",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25314",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-18T05:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25313",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6494e4811622b31c027ccac322ca463937fd805f569a93e6f15c01aade718793",
+            "DiffID": "sha256:26a504e63be4c63395f216d70b1b8af52263a5289908df8e96a0e7c840813adc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25313",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: stack exhaustion in doctype parsing",
+          "Description": "In Expat (aka libexpat) before 2.4.5, an attacker can trigger stack exhaustion in build_model via a large nesting depth in the DTD element.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V2Score": 4.3,
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25313",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://github.com/libexpat/libexpat/pull/558",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25313",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-18T05:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22822",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22822",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in addBinding in xmlparse.c",
+          "Description": "addBinding in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22822",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22822",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22822",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22823",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22823",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in build_model in xmlparse.c",
+          "Description": "build_model in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22823",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22823",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22823",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22824",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22824",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in defineAttribute in xmlparse.c",
+          "Description": "defineAttribute in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22824",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22824",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22824",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-23852",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-23852",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in function XML_GetBuffer",
+          "Description": "Expat (aka libexpat) before 2.4.4 has a signed integer overflow in XML_GetBuffer, for configurations with a nonzero XML_CONTEXT_BYTES.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2022-23852",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852",
+            "https://github.com/libexpat/libexpat/pull/550",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-23852",
+            "https://security.netapp.com/advisory/ntap-20220217-0001/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-24T02:15:00Z",
+          "LastModifiedDate": "2022-02-25T18:52:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-23990",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-23990",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in the doProlog function",
+          "Description": "Expat (aka libexpat) before 2.4.4 has an integer overflow in the doProlog function.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2022-23990",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23990",
+            "https://github.com/libexpat/libexpat/pull/551",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/34NXVL2RZC2YZRV74ZQ3RNFB7WCEUP7D/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R7FF2UH7MPXKTADYSJUAHI2Y5UHBSHUH/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-23990",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-26T19:15:00Z",
+          "LastModifiedDate": "2022-02-25T18:53:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25235",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25235",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: malformed 2- and 3-byte UTF-8 sequences can lead to arbitrary code execution",
+          "Description": "xmltok_impl.c in Expat (aka libexpat) before 2.4.5 lacks certain validation of encoding, such as checks for whether a UTF-8 character is valid in a certain context.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-116"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25235",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25235",
+            "https://github.com/libexpat/libexpat/pull/562",
+            "https://github.com/libexpat/libexpat/pull/562/commits/367ae600b48d74261bbc339b17e9318424049791 (fix)",
+            "https://github.com/libexpat/libexpat/pull/562/commits/97cfdc3fa7dca759880d81e371901f4620279106 (tests)",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25235",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-16T01:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25236",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25236",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: namespace-separator characters in \"xmlns[:prefix]\" attribute values can lead to arbitrary code execution",
+          "Description": "xmlparse.c in Expat (aka libexpat) before 2.4.5 allows attackers to insert namespace-separator characters into namespace URIs.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-668"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25236",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25236",
+            "https://github.com/libexpat/libexpat/pull/561",
+            "https://github.com/libexpat/libexpat/pull/561/commits/2de077423fb22750ebea599677d523b53cb93b1d (test)",
+            "https://github.com/libexpat/libexpat/pull/561/commits/a2fe525e660badd64b6c557c2b1ec26ddc07f6e4 (fix)",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25236",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-16T01:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25315",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25315",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in storeRawNames()",
+          "Description": "In Expat (aka libexpat) before 2.4.5, there is an integer overflow in storeRawNames.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25315",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://github.com/libexpat/libexpat/pull/559",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25315",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-18T05:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45960",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45960",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Large number of prefixed XML attributes on a single tag can crash libexpat",
+          "Description": "In Expat (aka libexpat) before 2.4.3, a left shift by 29 (or more) places in the storeAtts function in xmlparse.c can lead to realloc misbehavior (e.g., allocating too few bytes, or only freeing memory).",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:S/C:C/I:C/A:C",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 9,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2021-45960",
+            "https://bugzilla.mozilla.org/show_bug.cgi?id=1217609",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45960",
+            "https://github.com/libexpat/libexpat/issues/531",
+            "https://github.com/libexpat/libexpat/pull/534",
+            "https://github.com/libexpat/libexpat/pull/534/commits/0adcb34c49bee5b19bd29b16a578c510c23597ea",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45960",
+            "https://security.netapp.com/advisory/ntap-20220121-0004/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-01T19:15:00Z",
+          "LastModifiedDate": "2022-02-14T12:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-46143",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-46143",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in doProlog in xmlparse.c",
+          "Description": "In doProlog in xmlparse.c in Expat (aka libexpat) before 2.4.3, an integer overflow exists for m_groupSize.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2021-46143",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46143",
+            "https://github.com/libexpat/libexpat/issues/532",
+            "https://github.com/libexpat/libexpat/pull/538",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-46143",
+            "https://security.netapp.com/advisory/ntap-20220121-0006/",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-06T04:15:00Z",
+          "LastModifiedDate": "2022-02-25T18:42:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22825",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22825",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in lookup in xmlparse.c",
+          "Description": "lookup in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22825",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22825",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22825",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:50:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22826",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22826",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in nextScaffoldPart in xmlparse.c",
+          "Description": "nextScaffoldPart in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22826",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22826",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22826",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:51:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-22827",
+          "VendorIDs": [
+            "DSA-5073-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-22827",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: Integer overflow in storeAtts in xmlparse.c",
+          "Description": "storeAtts in xmlparse.c in Expat (aka libexpat) before 2.4.3 has an integer overflow.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V2Score": 6.8,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/17/3",
+            "https://access.redhat.com/security/cve/CVE-2022-22827",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22827",
+            "https://github.com/libexpat/libexpat/pull/539",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-22827",
+            "https://ubuntu.com/security/notices/USN-5288-1",
+            "https://www.debian.org/security/2022/dsa-5073",
+            "https://www.tenable.com/security/tns-2022-05"
+          ],
+          "PublishedDate": "2022-01-10T14:12:00Z",
+          "LastModifiedDate": "2022-02-25T18:50:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25314",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25314",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: integer overflow in copyString()",
+          "Description": "In Expat (aka libexpat) before 2.4.5, there is an integer overflow in copyString.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V2Score": 5,
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25314",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25314",
+            "https://github.com/libexpat/libexpat/pull/560",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25314",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-18T05:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25313",
+          "VendorIDs": [
+            "DSA-5085-1"
+          ],
+          "PkgName": "libexpat1-dev",
+          "InstalledVersion": "2.2.10-2",
+          "FixedVersion": "2.2.10-2+deb11u2",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25313",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: stack exhaustion in doctype parsing",
+          "Description": "In Expat (aka libexpat) before 2.4.5, an attacker can trigger stack exhaustion in build_model via a large nesting depth in the DTD element.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V2Score": 4.3,
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/19/1",
+            "https://access.redhat.com/security/cve/CVE-2022-25313",
+            "https://blog.hartwork.org/posts/expat-2-4-5-released/",
+            "https://github.com/libexpat/libexpat/pull/558",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-25313",
+            "https://security.netapp.com/advisory/ntap-20220303-0008/",
+            "https://www.debian.org/security/2022/dsa-5085"
+          ],
+          "PublishedDate": "2022-02-18T05:15:00Z",
+          "LastModifiedDate": "2022-03-03T11:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libmount-dev",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libmount-dev",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libmount1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libmount1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2022-24407",
+          "VendorIDs": [
+            "DSA-5087-1"
+          ],
+          "PkgName": "libsasl2-2",
+          "InstalledVersion": "2.1.27+dfsg-2.1",
+          "FixedVersion": "2.1.27+dfsg-2.1+deb11u1",
+          "Layer": {
+            "Digest": "sha256:9b829c73b52b92b97d5c07a54fb0f3e921995a296c714b53a32ae67d19231fcd",
+            "DiffID": "sha256:31892cc314cb1993ba1b8eb5f3002c4e9f099a9237af0d03d1893c6fcc559aab"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-24407",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "cyrus-sasl: failure to properly escape SQL input allows an attacker to execute arbitrary SQL commands",
+          "Description": "In Cyrus SASL 2.1.17 through 2.1.27 before 2.1.28, plugins/sql.c does not escape the password for a SQL INSERT or UPDATE statement.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-89"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 6.5,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+              "V3Score": 9.1
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/23/4",
+            "https://access.redhat.com/security/cve/CVE-2022-24407",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24407",
+            "https://github.com/cyrusimap/cyrus-sasl/blob/fdcd13ceaef8de684dc69008011fa865c5b4a3ac/docsrc/sasl/release-notes/2.1/index.rst",
+            "https://linux.oracle.com/cve/CVE-2022-24407.html",
+            "https://linux.oracle.com/errata/ELSA-2022-0666.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-24407",
+            "https://ubuntu.com/security/notices/USN-5301-1",
+            "https://ubuntu.com/security/notices/USN-5301-2",
+            "https://www.cyrusimap.org/sasl/sasl/release-notes/2.1/index.html#new-in-2-1-28",
+            "https://www.debian.org/security/2022/dsa-5087"
+          ],
+          "PublishedDate": "2022-02-24T15:15:00Z",
+          "LastModifiedDate": "2022-03-03T19:08:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-24407",
+          "VendorIDs": [
+            "DSA-5087-1"
+          ],
+          "PkgName": "libsasl2-modules-db",
+          "InstalledVersion": "2.1.27+dfsg-2.1",
+          "FixedVersion": "2.1.27+dfsg-2.1+deb11u1",
+          "Layer": {
+            "Digest": "sha256:9b829c73b52b92b97d5c07a54fb0f3e921995a296c714b53a32ae67d19231fcd",
+            "DiffID": "sha256:31892cc314cb1993ba1b8eb5f3002c4e9f099a9237af0d03d1893c6fcc559aab"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-24407",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "cyrus-sasl: failure to properly escape SQL input allows an attacker to execute arbitrary SQL commands",
+          "Description": "In Cyrus SASL 2.1.17 through 2.1.27 before 2.1.28, plugins/sql.c does not escape the password for a SQL INSERT or UPDATE statement.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-89"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 6.5,
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+              "V3Score": 9.1
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/02/23/4",
+            "https://access.redhat.com/security/cve/CVE-2022-24407",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24407",
+            "https://github.com/cyrusimap/cyrus-sasl/blob/fdcd13ceaef8de684dc69008011fa865c5b4a3ac/docsrc/sasl/release-notes/2.1/index.rst",
+            "https://linux.oracle.com/cve/CVE-2022-24407.html",
+            "https://linux.oracle.com/errata/ELSA-2022-0666.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-24407",
+            "https://ubuntu.com/security/notices/USN-5301-1",
+            "https://ubuntu.com/security/notices/USN-5301-2",
+            "https://www.cyrusimap.org/sasl/sasl/release-notes/2.1/index.html#new-in-2-1-28",
+            "https://www.debian.org/security/2022/dsa-5087"
+          ],
+          "PublishedDate": "2022-02-24T15:15:00Z",
+          "LastModifiedDate": "2022-03-03T19:08:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libsmartcols1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libsmartcols1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libuuid1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "libuuid1",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-22600",
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-22600",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: double free in packet_set_ring() in net/packet/af_packet.c",
+          "Description": "A double free bug in packet_set_ring() in net/packet/af_packet.c can be exploited by a local user through crafted syscalls to escalate privileges or deny service. We recommend upgrading kernel past the effected versions or rebuilding past ec6af094ea28f0f2dda1a6a33b14cd57e36a9755",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-415"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:C/I:C/A:C",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.2,
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H",
+              "V3Score": 6.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-22600",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22600",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit?id=ec6af094ea28f0f2dda1a6a33b14cd57e36a9755",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-22600",
+            "https://ubuntu.com/security/notices/USN-5266-1",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://ubuntu.com/security/notices/USN-5294-1",
+            "https://ubuntu.com/security/notices/USN-5294-2",
+            "https://ubuntu.com/security/notices/USN-5295-1",
+            "https://ubuntu.com/security/notices/USN-5295-2",
+            "https://ubuntu.com/security/notices/USN-5298-1"
+          ],
+          "PublishedDate": "2022-01-26T14:15:00Z",
+          "LastModifiedDate": "2022-02-04T20:53:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-39685",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39685",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: USB gadget buffer overflow",
+          "Description": "An out of bounds memory access flaw in the Linux kernel's USB Peripheral Controller functionality was found in the way users call control request handlers in a specific way for the USB gadget. A local user could use this flaw to crash the system or escalate their privileges on the system.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-39685",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-39685",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-5.15.y\u0026id=36dfdf11af49d3c009c711fb16f5c6e7a274505d",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-5.15.y\u0026id=6eea4ace62fa6414432692ee44f0c0a3d541d97a",
+            "https://github.com/szymonh/inspector-gadget",
+            "https://gitlab.com/postmarketOS/pmaports/-/issues/1346",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://ubuntu.com/security/notices/USN-5294-1",
+            "https://ubuntu.com/security/notices/USN-5294-2",
+            "https://ubuntu.com/security/notices/USN-5297-1",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.openwall.com/lists/oss-security/2021/12/15/4"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-44733",
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-44733",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: use-after-free in the TEE subsystem",
+          "Description": "A use-after-free exists in drivers/tee/tee_shm.c in the TEE subsystem in the Linux kernel through 5.15.11. This occurs because of a race condition in tee_shm_get_from_id during an attempt to free a shared memory object.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 4.4,
+              "V3Score": 7
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-44733",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2030747",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44733",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/drivers/tee/tee_shm.c",
+            "https://github.com/pjlantz/optee-qemu/blob/main/README.md",
+            "https://linux.oracle.com/cve/CVE-2021-44733.html",
+            "https://linux.oracle.com/errata/ELSA-2022-9148.html",
+            "https://lore.kernel.org/lkml/20211214123540.1789434-1-jens.wiklander@linaro.org/",
+            "https://lore.kernel.org/lkml/20211215092501.1861229-1-jens.wiklander@linaro.org/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-44733",
+            "https://security.netapp.com/advisory/ntap-20220114-0003/",
+            "https://ubuntu.com/security/notices/USN-5278-1"
+          ],
+          "PublishedDate": "2021-12-22T17:15:00Z",
+          "LastModifiedDate": "2022-01-14T07:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45469",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45469",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: out-of-bounds memory access in __f2fs_setxattr() in fs/f2fs/xattr.c when an inode has an invalid last xattr entry",
+          "Description": "In __f2fs_setxattr in fs/f2fs/xattr.c in the Linux kernel through 5.15.11, there is an out-of-bounds memory access when an inode has an invalid last xattr entry.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-125"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 4.6,
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.4
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2021/12/25/1",
+            "https://access.redhat.com/security/cve/CVE-2021-45469",
+            "https://bugzilla.kernel.org/show_bug.cgi?id=215235",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45469",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/chao/linux.git/commit/?h=dev\u0026id=5598b24efaf4892741c798b425d543e4bed357a1",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AK2C4A43BZSWATZWFUHHHUQF3HPIALNP/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QG7XV2WXKMSMKIQKIBG5LW3Y3GXEWG5Q/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45469",
+            "https://security.netapp.com/advisory/ntap-20220114-0003/",
+            "https://www.debian.org/security/2022/dsa-5050"
+          ],
+          "PublishedDate": "2021-12-23T19:15:00Z",
+          "LastModifiedDate": "2022-02-10T07:48:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-0185",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-0185",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: fs_context: heap overflow in legacy parameter handling",
+          "Description": "A heap-based buffer overflow flaw was found in the way the legacy_parse_param function in the Filesystem Context functionality of the Linux kernel verified the supplied parameters length. An unprivileged (in case of unprivileged user namespaces enabled, otherwise needs namespaced CAP_SYS_ADMIN privilege) local user able to open a filesystem that does not support the Filesystem Context API (and thus fallbacks to legacy handling) could use this flaw to escalate their privileges on the system.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:C/I:C/A:C",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.2,
+              "V3Score": 8.4
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2021-4155.json",
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2022-0185.json",
+            "https://access.redhat.com/security/cve/CVE-2022-0185",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0185",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=722d94847de2",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=722d94847de29310e8aa03fcbdb41fc92c521756",
+            "https://github.com/Crusaders-of-Rust/CVE-2022-0185",
+            "https://linux.oracle.com/cve/CVE-2022-0185.html",
+            "https://linux.oracle.com/errata/ELSA-2022-9148.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-0185",
+            "https://security.netapp.com/advisory/ntap-20220225-0003/",
+            "https://ubuntu.com/security/notices/USN-5240-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/18/7",
+            "https://www.willsroot.io/2022/01/cve-2022-0185.html"
+          ],
+          "PublishedDate": "2022-02-11T18:15:00Z",
+          "LastModifiedDate": "2022-02-25T10:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-23222",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-23222",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: local privileges escalation in kernel/bpf/verifier.c",
+          "Description": "kernel/bpf/verifier.c in the Linux kernel through 5.15.14 allows local users to gain privileges because of the availability of pointer arithmetic via certain *_OR_NULL pointer types.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-476"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:C/I:C/A:C",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.2,
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 6.7
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2022/01/14/1",
+            "http://www.openwall.com/lists/oss-security/2022/01/18/2",
+            "https://access.redhat.com/security/cve/CVE-2022-23222",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23222",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FCR3LIRUEXR7CA63W5M2HT3K63MZGKBR/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Z5VTIZZUPC73IEJNZX66BY2YCBRZAELB/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-23222",
+            "https://security.netapp.com/advisory/ntap-20220217-0002/",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://www.debian.org/security/2022/dsa-5050",
+            "https://www.openwall.com/lists/oss-security/2022/01/13/1"
+          ],
+          "PublishedDate": "2022-01-14T08:15:00Z",
+          "LastModifiedDate": "2022-02-28T15:24:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-28711",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-28711",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "CVE-2021-28712 CVE-2021-28713 xen: rogue backends can cause DoS of guests via high frequency events",
+          "Description": "Rogue backends can cause DoS of guests via high frequency events T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Xen offers the ability to run PV backends in regular unprivileged guests, typically referred to as \"driver domains\". Running PV backends in driver domains has one primary security advantage: if a driver domain gets compromised, it doesn't have the privileges to take over the system. However, a malicious driver domain could try to attack other guests via sending events at a high frequency leading to a Denial of Service in the guest due to trying to service interrupts for elongated amounts of time. There are three affected backends: * blkfront patch 1, CVE-2021-28711 * netfront patch 2, CVE-2021-28712 * hvc_xen (console) patch 3, CVE-2021-28713",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+              "V2Score": 2.1,
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.2
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-28711",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28711",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.debian.org/security/2022/dsa-5050",
+            "https://xenbits.xen.org/xsa/advisory-391.html",
+            "https://xenbits.xenproject.org/xsa/advisory-391.txt"
+          ],
+          "PublishedDate": "2022-01-05T17:15:00Z",
+          "LastModifiedDate": "2022-01-21T20:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-28712",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-28712",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "CVE-2021-28711 CVE-2021-28712 CVE-2021-28713 xen: rogue backends can cause DoS of guests via high frequency events",
+          "Description": "Rogue backends can cause DoS of guests via high frequency events T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Xen offers the ability to run PV backends in regular unprivileged guests, typically referred to as \"driver domains\". Running PV backends in driver domains has one primary security advantage: if a driver domain gets compromised, it doesn't have the privileges to take over the system. However, a malicious driver domain could try to attack other guests via sending events at a high frequency leading to a Denial of Service in the guest due to trying to service interrupts for elongated amounts of time. There are three affected backends: * blkfront patch 1, CVE-2021-28711 * netfront patch 2, CVE-2021-28712 * hvc_xen (console) patch 3, CVE-2021-28713",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+              "V2Score": 2.1,
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.2
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-28712",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28712",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.debian.org/security/2022/dsa-5050",
+            "https://xenbits.xen.org/xsa/advisory-391.html",
+            "https://xenbits.xenproject.org/xsa/advisory-391.txt"
+          ],
+          "PublishedDate": "2022-01-05T17:15:00Z",
+          "LastModifiedDate": "2022-01-21T20:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-28713",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-28713",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "CVE-2021-28711 CVE-2021-28712 CVE-2021-28713 xen: rogue backends can cause DoS of guests via high frequency events",
+          "Description": "Rogue backends can cause DoS of guests via high frequency events T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Xen offers the ability to run PV backends in regular unprivileged guests, typically referred to as \"driver domains\". Running PV backends in driver domains has one primary security advantage: if a driver domain gets compromised, it doesn't have the privileges to take over the system. However, a malicious driver domain could try to attack other guests via sending events at a high frequency leading to a Denial of Service in the guest due to trying to service interrupts for elongated amounts of time. There are three affected backends: * blkfront patch 1, CVE-2021-28711 * netfront patch 2, CVE-2021-28712 * hvc_xen (console) patch 3, CVE-2021-28713",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+              "V2Score": 2.1,
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.2
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-28713",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28713",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.debian.org/security/2022/dsa-5050",
+            "https://xenbits.xen.org/xsa/advisory-391.html",
+            "https://xenbits.xenproject.org/xsa/advisory-391.txt"
+          ],
+          "PublishedDate": "2022-01-05T17:15:00Z",
+          "LastModifiedDate": "2022-01-21T20:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-28714",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-28714",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "Guest can force Linux netback driver to hog large amounts of kernel me ...",
+          "Description": "Guest can force Linux netback driver to hog large amounts of kernel memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Incoming data packets for a guest in the Linux kernel's netback driver are buffered until the guest is ready to process them. There are some measures taken for avoiding to pile up too much data, but those can be bypassed by the guest: There is a timeout how long the client side of an interface can stop consuming new packets before it is assumed to have stalled, but this timeout is rather long (60 seconds by default). Using a UDP connection on a fast interface can easily accumulate gigabytes of data in that time. (CVE-2021-28715) The timeout could even never trigger if the guest manages to have only one free slot in its RX queue ring page and the next package would require more than one free slot, which may be the case when using GSO, XDP, or software hashing. (CVE-2021-28714)",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-404"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+              "V2Score": 2.1,
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28714",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-28714",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.debian.org/security/2022/dsa-5050",
+            "https://xenbits.xen.org/xsa/advisory-392.html",
+            "https://xenbits.xenproject.org/xsa/advisory-392.txt"
+          ],
+          "PublishedDate": "2022-01-06T18:15:00Z",
+          "LastModifiedDate": "2022-01-21T20:15:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-28715",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-28715",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "Guest can force Linux netback driver to hog large amounts of kernel me ...",
+          "Description": "Guest can force Linux netback driver to hog large amounts of kernel memory T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] Incoming data packets for a guest in the Linux kernel's netback driver are buffered until the guest is ready to process them. There are some measures taken for avoiding to pile up too much data, but those can be bypassed by the guest: There is a timeout how long the client side of an interface can stop consuming new packets before it is assumed to have stalled, but this timeout is rather long (60 seconds by default). Using a UDP connection on a fast interface can easily accumulate gigabytes of data in that time. (CVE-2021-28715) The timeout could even never trigger if the guest manages to have only one free slot in its RX queue ring page and the next package would require more than one free slot, which may be the case when using GSO, XDP, or software hashing. (CVE-2021-28714)",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-404"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+              "V2Score": 2.1,
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28715",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-28715",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.debian.org/security/2022/dsa-5050",
+            "https://xenbits.xen.org/xsa/advisory-392.html",
+            "https://xenbits.xenproject.org/xsa/advisory-392.txt"
+          ],
+          "PublishedDate": "2022-01-06T18:15:00Z",
+          "LastModifiedDate": "2022-02-10T15:11:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-4155",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-4155",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: xfs: raw block device data leak in XFS_IOC_ALLOCSP IOCTL",
+          "Description": "A data leak flaw was found in the way XFS_IOC_ALLOCSP IOCTL in the XFS filesystem allowed for size increase of files with unaligned size. A local attacker could use this flaw to leak data on the XFS filesystem otherwise not accessible to them.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2021-4155.json",
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2022-0185.json",
+            "https://access.redhat.com/security/cve/CVE-2021-4155",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-4155",
+            "https://git.kernel.org/linus/983d8e60f50806f90534cc5373d0ce867e5aaf79 (5.16)",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=983d8e60f50806f90534cc5373d0ce867e5aaf79",
+            "https://linux.oracle.com/cve/CVE-2021-4155.html",
+            "https://linux.oracle.com/errata/ELSA-2022-9148.html",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://ubuntu.com/security/notices/USN-5294-1",
+            "https://ubuntu.com/security/notices/USN-5294-2",
+            "https://ubuntu.com/security/notices/USN-5295-1",
+            "https://ubuntu.com/security/notices/USN-5295-2",
+            "https://ubuntu.com/security/notices/USN-5297-1",
+            "https://ubuntu.com/security/notices/USN-5298-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/10/1"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45095",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45095",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: refcount leak in pep_sock_accept() in net/phonet/pep.c",
+          "Description": "pep_sock_accept in net/phonet/pep.c in the Linux kernel through 5.15.8 has a refcount leak.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-200"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:P/I:N/A:N",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "V2Score": 2.1,
+              "V3Score": 5.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-45095",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45095",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=bcd0f93353326954817a4f9fa55ec57fb38acbb0",
+            "https://github.com/torvalds/linux/commit/bcd0f93353326954817a4f9fa55ec57fb38acbb0",
+            "https://lore.kernel.org/all/20211209082839.33985-1-hbh25y@gmail.com/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45095",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://www.debian.org/security/2022/dsa-5050"
+          ],
+          "PublishedDate": "2021-12-16T04:15:00Z",
+          "LastModifiedDate": "2022-02-10T17:36:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45402",
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45402",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: pointer leak in check_alu_op() of kernel/bpf/verifier.c",
+          "Description": "The check_alu_op() function in kernel/bpf/verifier.c in the Linux kernel through v5.16-rc5 did not properly update bounds while handling the mov32 instruction, which allows local users to obtain potentially sensitive address information, aka a \"pointer leak.\"",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-668"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:L/Au:N/C:P/I:N/A:N",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "V2Score": 2.1,
+              "V3Score": 5.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+              "V3Score": 6.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-45402",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45402",
+            "https://git.kernel.org/linus/3cf2b61eb06765e27fec6799292d9fb46d0b7e60",
+            "https://git.kernel.org/linus/b1a7288dedc6caf9023f2676b4f5ed34cf0d4029",
+            "https://git.kernel.org/linus/e572ff80f05c33cd0cb4860f864f5c9c044280b6",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=3cf2b61eb06765e27fec6799292d9fb46d0b7e60",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=b1a7288dedc6caf9023f2676b4f5ed34cf0d4029",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=e572ff80f05c33cd0cb4860f864f5c9c044280b6",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45402"
+          ],
+          "PublishedDate": "2022-02-11T15:15:00Z",
+          "LastModifiedDate": "2022-02-23T18:12:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45480",
+          "VendorIDs": [
+            "DSA-5050-1"
+          ],
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45480",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: memory leak in the __rds_conn_create() in net/rds/connection.c",
+          "Description": "An issue was discovered in the Linux kernel before 5.15.11. There is a memory leak in the __rds_conn_create() function in net/rds/connection.c in a certain combination of circumstances.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-401"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:L/AC:M/Au:N/C:N/I:N/A:C",
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V2Score": 4.7,
+              "V3Score": 5.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-45480",
+            "https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.11",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45480",
+            "https://git.kernel.org/linus/5f9562ebe710c307adc5f666bf1a2162ee7977c0",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5f9562ebe710c307adc5f666bf1a2162ee7977c0",
+            "https://github.com/torvalds/linux/commit/5f9562ebe710c307adc5f666bf1a2162ee7977c0",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45480",
+            "https://ubuntu.com/security/notices/USN-5278-1",
+            "https://www.debian.org/security/2022/dsa-5050"
+          ],
+          "PublishedDate": "2021-12-24T23:15:00Z",
+          "LastModifiedDate": "2022-02-10T07:49:00Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-4135",
+          "PkgName": "linux-libc-dev",
+          "InstalledVersion": "5.10.84-1",
+          "FixedVersion": "5.10.92-1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "SeveritySource": "debian",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-4135",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "kernel: Heap information leak in map_lookup_elem function",
+          "Description": "A flaw memory leak in the Linux kernel's eBPF for the Simulated networking device driver in the way user uses BPF for the device such that function nsim_map_alloc_elem being called. A local user could use this flaw to get unauthorized access to some data.",
+          "Severity": "LOW",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-4135",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-4135",
+            "https://git.kernel.org/linus/481221775d53d6215a6e5e9ce1cce6d2b4ab9a46 (5.16-rc6)",
+            "https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=481221775d53",
+            "https://ubuntu.com/security/notices/USN-5278-1"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "mount",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "mount",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "util-linux",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "util-linux",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:0e29546d541cdbd309281d21a73a9d1db78665c1b95b74f32b009e0b77a6e1e3",
+            "DiffID": "sha256:11936051f93baf5a4fb090a8fa0999309b8173556f7826598e235e8a82127bce"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3995",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "uuid-dev",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3995",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of FUSE filesystems belonging to users with similar uid",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows an unprivileged local attacker to unmount FUSE filesystems that belong to certain other users who have a UID that is a prefix of the UID of the attacker in its string form. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 4.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3995",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        },
+        {
+          "VulnerabilityID": "CVE-2021-3996",
+          "VendorIDs": [
+            "DSA-5055-1"
+          ],
+          "PkgName": "uuid-dev",
+          "InstalledVersion": "2.36.1-8",
+          "FixedVersion": "2.36.1-8+deb11u1",
+          "Layer": {
+            "Digest": "sha256:6f9f74896dfa93fe0172f594faba85e0b4e8a0481a0fefd9112efc7e4d3c78f7",
+            "DiffID": "sha256:c3a0d593ed24e738aec3b1e61662f696311ae99941c45c78d281ebc3732bdcb0"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3996",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "util-linux: Unauthorized unmount of filesystems in libmount",
+          "Description": "A logic error was found in the libmount library of util-linux in the function that allows an unprivileged user to unmount a FUSE filesystem. This flaw allows a local user on a vulnerable system to unmount other users' filesystems that are either world-writable themselves (like /tmp) or mounted in a world-writable directory. An attacker may use this flaw to cause a denial of service to applications that use the affected filesystems.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-3996",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996",
+            "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes",
+            "https://ubuntu.com/security/notices/USN-5279-1",
+            "https://www.openwall.com/lists/oss-security/2022/01/24/2"
+          ]
+        }
+      ]
+    },
+    {
+      "Target": "Python",
+      "Class": "lang-pkgs",
+      "Type": "python-pkg"
+    }
+  ]
+}
