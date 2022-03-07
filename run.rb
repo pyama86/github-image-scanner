@@ -87,7 +87,9 @@ config['orgs'].each do |o|
         result = scan_image(image_name, image_remove: true)
         next if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
 
-        issue_txt, cve_summary = scan_result_to_issue_md(result, cve_summary)
+        ignore_vulnerabilities = ignore_vulnerabilities_for(config, image_name)
+
+        issue_txt, cve_summary = scan_result_to_issue_md(result, cve_summary, ignore_vulnerabilities)
         if issue_txt
           logger.info "create issue #{o}/#{r}"
           issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt.slice(0, 65500))

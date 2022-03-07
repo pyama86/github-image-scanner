@@ -4,3 +4,9 @@ orgs:
 
 ignore_images:
 - example.com/foo/bar:latest
+
+ignores:
+- image: example.com/foo/bar
+  vulnerabilities:
+    - CVE-2022-1234
+    - CVE-2022-5678

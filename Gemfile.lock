@@ -12,6 +12,7 @@ GEM
     ansi (1.5.0)
     builder (3.2.4)
     concurrent-ruby (1.1.9)
+    diff-lcs (1.5.0)
     docker-api (2.2.0)
       excon (>= 0.47.0)
       multi_json
@@ -59,6 +60,19 @@ GEM
       sawyer (~> 0.8.0, >= 0.5.3)
     public_suffix (4.0.6)
     rake (13.0.6)
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     sawyer (0.8.2)
@@ -78,6 +92,7 @@ DEPENDENCIES
   minitest-reporters
   octokit
   rake
+  rspec
 
 BUNDLED WITH
    1.17.2

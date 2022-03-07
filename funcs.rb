@@ -81,7 +81,12 @@ def scan_image(image_name, image_remove: false)
   JSON.parse(File.read(File.join(out_path, "result.json")))
 end
 
-def scan_result_to_issue_md(result, cve_summay={})
+# Trivy Scan Result JSON to Markdown Report
+# @param result [Hash] Trivy Scan Result JSON
+# @param cve_summary [Hash]
+# @param ignore_vulnerabilities [Array]
+# @return [Array]
+def scan_result_to_issue_md(result, cve_summay={}, ignore_vulnerabilities=[])
   return [nil, cve_summay] if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
 
   issue_txt = "# These images have vulnerabilites.\n"
@@ -89,7 +94,10 @@ def scan_result_to_issue_md(result, cve_summay={})
   data = []
   result['Results'].each do |r|
     next unless r["Vulnerabilities"]
-    data.concat(r["Vulnerabilities"].map do |v|
+
+    vulnerabilites = r["Vulnerabilities"].map do |v|
+      next if ignore_vulnerabilities.include? v['VulnerabilityID']
+
       cve_summay[v['VulnerabilityID']] ||= {}
 
       cve_summay[v['VulnerabilityID']]['Type'] = r['Type']
@@ -109,24 +117,42 @@ def scan_result_to_issue_md(result, cve_summay={})
         v.fetch("PkgPath", "-"),
         v["InstalledVersion"],
         v["FixedVersion"],
-        "[#{v["VulnerabilityID"]}](#{v["PrimaryURL"]})"
+        "[#{v['VulnerabilityID']}](#{v['PrimaryURL']})"
       ]
-    end)
+    end
+
+    data.concat(vulnerabilites.compact)
   end
+
   issue_txt << MarkdownTables.make_table(labels, data, is_rows: true)
   [issue_txt, cve_summay]
 end
 
-
+# @param cve_summary [Hash]
+# @return [String]
 def cve_summary_md(cve_summary)
   labels = ['cve', 'name', 'affected images']
 
-  data = cve_summary.map do |k,v|
+  data = cve_summary.map do |k, v|
     [
-      "[#{k}](#{v["PrimaryURL"]})",
+      "[#{k}](#{v['PrimaryURL']})",
       v['PkgName'],
       v['Artifacts'].join("<br>")
     ]
   end
+
   MarkdownTables.make_table(labels, data, is_rows: true)
+end
+
+# @param config [Hash]
+# @param image_name [String]
+# @return [Array]
+def ignore_vulnerabilities_for(config, image_name)
+  return [] unless config.key? 'ignores'
+
+  vulnerabilites = config['ignores'].map do |ignore|
+    image_name.match?(ignore['image']) ? ignore['vulnerabilities'] : []
+  end
+
+  vulnerabilites.flatten
 end
