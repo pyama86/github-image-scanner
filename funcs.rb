@@ -143,3 +143,16 @@ def cve_summary_md(cve_summary)
 
   MarkdownTables.make_table(labels, data, is_rows: true)
 end
+
+# @param config [Hash]
+# @param image_name [String]
+# @return [Array]
+def ignore_vulnerabilities_for(config, image_name)
+  return [] unless config.key? 'ignores'
+
+  vulnerabilites = config['ignores'].map do |ignore|
+    image_name.match?(ignore['image']) ? ignore['vulnerabilities'] : []
+  end
+
+  vulnerabilites.flatten
+end

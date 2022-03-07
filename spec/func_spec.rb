@@ -75,4 +75,44 @@ describe 'func' do
       expect(cve_summary_md(cve_summary)).to include('|[CVE-2021-3995](https://avd.aquasec.com/nvd/cve-2021-3995)|uuid-dev|python:3.6|')
     end
   end
+
+  describe '#ignore_vulnerabilities_for' do
+    let(:image_name) { 'example.com/foo/bar:latest' }
+
+    context 'If the `ignores` key does not exist' do
+      let(:config) { {} }
+
+      it 'should be return empty array' do
+        expect(ignore_vulnerabilities_for(config, image_name)).to be_empty
+      end
+    end
+
+    describe 'Return value test' do
+      let(:config) {
+        {
+          "ignores" => [
+            {
+              "image" => "example.com/foo/bar:latest",
+              "vulnerabilities" => [
+                "CVE-2022-1234",
+                "CVE-2022-1235"
+              ]
+            }
+          ]
+        }
+      }
+
+      it 'Return the list of ignored vulnerabilities for the image in question.' do
+        expect(ignore_vulnerabilities_for(config, image_name)).to include('CVE-2022-1234')
+      end
+
+      context 'If the image does not exist in the ignore list' do
+        let(:image_name) { 'example.com/foo/poe:latest' }
+
+        it 'should be return empty array' do
+          expect(ignore_vulnerabilities_for(config, image_name)).to be_empty
+        end
+      end
+    end
+  end
 end
