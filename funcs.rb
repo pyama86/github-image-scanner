@@ -24,9 +24,6 @@ def scan_image(image_name, image_remove: false)
 
   FileUtils.mkdir_p(out_path)
 
-  unless File.exist?(ignore_path)
-    File.open(ignore_path, mode = "w"){|f| f.write((config['ignore_cves'] || []).join("\n")) } 
-  end
   result = {}
   cmd = [
     '--cache-dir',
@@ -64,6 +61,11 @@ def scan_image(image_name, image_remove: false)
     vols << "#{out_path}:/opt/out/"
     vols << "#{ignore_path}:/opt/.trivyignore"
     vols << '/var/run/docker.sock:/var/run/docker.sock'
+
+    ignore_cves = image.json.dig("Config", "Labels", "ignore_cves")&.split(/,\s?/)
+    ignore_cves += config['ignore_cves'] || []
+    File.open(ignore_path, mode = "w"){|f| f.write(ignore_cves.join("\n")) }
+
     container = ::Docker::Container.create({
                                              'Image' => @trivy.id,
                                              'WorkDir' => "/opt",
