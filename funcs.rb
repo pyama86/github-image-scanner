@@ -62,7 +62,7 @@ def scan_image(image_name, image_remove: false)
     vols = []
     vols << "#{cache_path}:/opt/cache/"
     vols << "#{out_path}:/opt/out/"
-    vols << "#{ignore_path}:/opt/.trivyignore"
+    vols << "#{ignore_path}:/opt/scanner/.trivyignore"
     vols << '/var/run/docker.sock:/var/run/docker.sock'
     container = ::Docker::Container.create({
                                              'Image' => @trivy.id,
