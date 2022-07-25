@@ -44,7 +44,7 @@ def scan_image(image_name, image_remove: false)
     image_name
   ]
 
-  File.delete(File.join(out_path, "result.json"))  if File.exists?(File.join(out_path, "result.json"))
+  File.delete(File.join(out_path, 'result.json')) if File.exist?(File.join(out_path, 'result.json'))
   if which('trivy')
     system("trivy #{cmd.join(' ')}")
   else
@@ -52,27 +52,28 @@ def scan_image(image_name, image_remove: false)
     if config['registory_domain']
       @_auth ||= {}
       @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
-                           'serveraddress' => "https://#{config['registory_domain']}")
+                                                                 'serveraddress' => "https://#{config['registory_domain']}")
     end
 
     image = Docker::Image.create('fromImage' => image_name)
     vols = []
     vols << "#{cache_path}:/opt/cache/"
     vols << "#{out_path}:/opt/out/"
-    vols << "#{ignore_path}:/opt/scanner/.trivyignore"
+    vols << "#{ignore_path}:/opt/.trivyignore"
     vols << '/var/run/docker.sock:/var/run/docker.sock'
 
-    ignore_cves = image.json.dig("Config", "Labels", "ignore_cves")&.split(/,\s?/)
+    ignore_cves = image.json.dig('Config', 'Labels', 'ignore_cves')&.split(/,\s?/)
     ignore_cves += config['ignore_cves'] || []
-    File.open(ignore_path, mode = "w"){|f| f.write(ignore_cves.join("\n")) }
+    File.open(ignore_path, mode = 'w') { |f| f.write(ignore_cves.join("\n")) }
 
     container = ::Docker::Container.create({
                                              'Image' => @trivy.id,
-                                             'WorkDir' => "/opt",
+                                             'WorkDir' => '/opt',
                                              'HostConfig' => {
                                                'Binds' => vols
                                              },
-                                             'Cmd' => cmd                                           })
+                                             'Cmd' => cmd
+                                           })
     container.start
     container.streaming_logs(stdout: true, stderr: true) { |_, chunk| puts chunk.chomp }
 
@@ -80,7 +81,7 @@ def scan_image(image_name, image_remove: false)
     container.remove(force: true)
     image.remove(force: true) if image_remove
   end
-  JSON.parse(File.read(File.join(out_path, "result.json")))
+  JSON.parse(File.read(File.join(out_path, 'result.json')))
 end
 
 # Trivy Scan Result JSON to Markdown Report
@@ -88,16 +89,16 @@ end
 # @param cve_summary [Hash]
 # @param ignore_vulnerabilities [Array]
 # @return [Array]
-def scan_result_to_issue_md(result, cve_summay={}, ignore_vulnerabilities=[])
-  return [nil, cve_summay] if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
+def scan_result_to_issue_md(result, cve_summay = {}, ignore_vulnerabilities = [])
+  return [nil, cve_summay] if result.empty? || result['Results'].none? { |r| r.key?('Vulnerabilities') }
 
   issue_txt = "# These images have vulnerabilites.\n"
-  labels = ['target', 'type', 'name', 'path', 'installed', 'fixed', 'cve']
+  labels = %w[target type name path installed fixed cve]
   data = []
   result['Results'].each do |r|
-    next unless r["Vulnerabilities"]
+    next unless r['Vulnerabilities']
 
-    vulnerabilites = r["Vulnerabilities"].map do |v|
+    vulnerabilites = r['Vulnerabilities'].map do |v|
       next if ignore_vulnerabilities.include? v['VulnerabilityID']
 
       cve_summay[v['VulnerabilityID']] ||= {}
@@ -113,12 +114,12 @@ def scan_result_to_issue_md(result, cve_summay={}, ignore_vulnerabilities=[])
       end
 
       [
-        r["Class"] == "os-pkgs" ? "os" : r['Target'],
+        r['Class'] == 'os-pkgs' ? 'os' : r['Target'],
         r['Type'],
-        v["PkgName"],
-        v.fetch("PkgPath", "-"),
-        v["InstalledVersion"],
-        v["FixedVersion"],
+        v['PkgName'],
+        v.fetch('PkgPath', '-'),
+        v['InstalledVersion'],
+        v['FixedVersion'],
         "[#{v['VulnerabilityID']}](#{v['PrimaryURL']})"
       ]
     end
@@ -139,7 +140,7 @@ def cve_summary_md(cve_summary)
     [
       "[#{k}](#{v['PrimaryURL']})",
       v['PkgName'],
-      v['Artifacts'].join("<br>")
+      v['Artifacts'].join('<br>')
     ]
   end
 

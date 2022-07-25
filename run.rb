@@ -6,7 +6,7 @@ require 'logger'
 require 'date'
 
 def normalize_issue_url(url)
-  url.gsub(/api\/v3\/repos\//, '')
+  url.gsub(%r{api/v3/repos/}, '')
 end
 
 logger = Logger.new($stdout)
@@ -85,14 +85,15 @@ config['orgs'].each do |o|
         next if config['ignore_images'].find { |i| image_name =~ /#{i}/ }
 
         result = scan_image(image_name, image_remove: true)
-        next if result.empty? || result['Results'].none? {|r| r.key?("Vulnerabilities") }
+        next if result.empty? || result['Results'].none? { |r| r.key?('Vulnerabilities') }
 
         ignore_vulnerabilities = ignore_vulnerabilities_for(config, image_name)
 
         issue_txt, cve_summary = scan_result_to_issue_md(result, cve_summary, ignore_vulnerabilities)
         if issue_txt
           logger.info "create issue #{o}/#{r}"
-          issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}", issue_txt.slice(0, 65500))
+          issue = client.create_issue("#{o}/#{r}", "#{Date.today.strftime('%Y/%m/%d')} Found vulnerabilities in #{image_name}",
+                                      issue_txt.slice(0, 65_500))
           created << "- [ ] [#{image_name}](#{normalize_issue_url(issue.url)})"
         end
       rescue StandardError => e
@@ -112,5 +113,5 @@ end
 if created.size.positive? && config['report_repo']
   issue_txt = "These containers has vulunabilities\n#{created.join("\n")}\n\n"
   issue_txt << cve_summary_md(cve_summary)
-  client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report", issue_txt.slice(0, 65500))
+  client.create_issue(config['report_repo'], "#{Date.today.strftime('%Y/%m/%d')} container scan report", issue_txt.slice(0, 65_500))
 end
