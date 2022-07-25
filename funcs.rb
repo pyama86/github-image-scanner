@@ -38,7 +38,7 @@ def scan_image(image_name, image_remove: false)
     '--exit-code',
     '1',
     '--ignorefile',
-    '.trivyignore',
+    './.trivyignore',
     '--output',
     './out/result.json',
     image_name
@@ -53,6 +53,10 @@ def scan_image(image_name, image_remove: false)
       @_auth ||= {}
       @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
                                                                  'serveraddress' => "https://#{config['registory_domain']}")
+    end
+
+    cmd.each_with_index do |_, i|
+      cmd[i].gsub!(%r{\./}, '/opt/')
     end
 
     image = Docker::Image.create('fromImage' => image_name)
