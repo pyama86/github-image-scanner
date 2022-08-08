@@ -23,6 +23,16 @@ def scan_image(image_name, image_remove: false)
   ignore_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
 
   FileUtils.mkdir_p(out_path)
+  if config['registory_domain']
+    @_auth ||= {}
+    @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
+                                                               'serveraddress' => "https://#{config['registory_domain']}")
+  end
+
+  image = Docker::Image.create('fromImage' => image_name)
+  ignore_cves = image.json.dig('Config', 'Labels', 'ignore_cves')&.split(/,\s?/)
+  ignore_cves += config['ignore_cves'] || []
+  File.open(ignore_path, mode = 'w') { |f| f.write(ignore_cves.join("\n")) }
 
   result = {}
   cmd = [
@@ -49,26 +59,15 @@ def scan_image(image_name, image_remove: false)
     system("trivy #{cmd.join(' ')}")
   else
     @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
-    if config['registory_domain']
-      @_auth ||= {}
-      @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
-                                                                 'serveraddress' => "https://#{config['registory_domain']}")
-    end
-
     cmd.each_with_index do |_, i|
       cmd[i].gsub!(%r{\./}, '/opt/')
     end
 
-    image = Docker::Image.create('fromImage' => image_name)
     vols = []
     vols << "#{cache_path}:/opt/cache/"
     vols << "#{out_path}:/opt/out/"
     vols << "#{ignore_path}:/opt/.trivyignore"
     vols << '/var/run/docker.sock:/var/run/docker.sock'
-
-    ignore_cves = image.json.dig('Config', 'Labels', 'ignore_cves')&.split(/,\s?/)
-    ignore_cves += config['ignore_cves'] || []
-    File.open(ignore_path, mode = 'w') { |f| f.write(ignore_cves.join("\n")) }
 
     container = ::Docker::Container.create({
                                              'Image' => @trivy.id,
@@ -83,8 +82,8 @@ def scan_image(image_name, image_remove: false)
 
     container.wait(120)
     container.remove(force: true)
-    image.remove(force: true) if image_remove
   end
+  image.remove(force: true) if image_remove
   JSON.parse(File.read(File.join(out_path, 'result.json')))
 end
 
