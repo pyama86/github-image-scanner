@@ -23,6 +23,11 @@ def scan_image(image_name, image_remove: false)
   ignore_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
 
   FileUtils.mkdir_p(out_path)
+  if config['registory_domain']
+    @_auth ||= {}
+    @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
+                                                               'serveraddress' => "https://#{config['registory_domain']}")
+  end
 
   image = Docker::Image.create('fromImage' => image_name)
   ignore_cves = image.json.dig('Config', 'Labels', 'ignore_cves')&.split(/,\s?/)
@@ -54,12 +59,6 @@ def scan_image(image_name, image_remove: false)
     system("trivy #{cmd.join(' ')}")
   else
     @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
-    if config['registory_domain']
-      @_auth ||= {}
-      @_auth[config['registory_domain']] || Docker.authenticate!('username' => ENV['GITHUB_USER'], 'password' => ENV['GITHUB_TOKEN'],
-                                                                 'serveraddress' => "https://#{config['registory_domain']}")
-    end
-
     cmd.each_with_index do |_, i|
       cmd[i].gsub!(%r{\./}, '/opt/')
     end
