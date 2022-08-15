@@ -30,7 +30,7 @@ def scan_image(image_name, image_remove: false)
   end
 
   image = Docker::Image.create('fromImage' => image_name)
-  ignore_cves = image.json.dig('Config', 'Labels', 'ignore_cves')&.split(/,\s?/)
+  ignore_cves = image.json.dig('Config', 'Labels', 'ignore_cves')&.split(/,\s?/) || []
   ignore_cves += config['ignore_cves'] || []
   File.open(ignore_path, mode = 'w') { |f| f.write(ignore_cves.join("\n")) }
 
