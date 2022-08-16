@@ -35,7 +35,6 @@ def scan_image(image_name, image_remove: false)
   ignore_cves += config['ignore_cves'] || []
   File.open(ignore_path, mode = 'w') { |f| f.write(ignore_cves.join("\n")) }
 
-  result = {}
   cmd = [
     '--cache-dir',
     cache_path,
