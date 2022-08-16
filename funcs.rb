@@ -18,9 +18,10 @@ def which(cmd)
 end
 
 def scan_image(image_name, image_remove: false)
-  cache_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/cache" : "#{Dir.pwd}/cache"
-  out_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/out" : "#{Dir.pwd}/out"
-  ignore_path = ENV['VOLUME_PATH'] ? "#{ENV['VOLUME_PATH']}/.trivyignore" : "#{Dir.pwd}/.trivyignore"
+  base_path   = ENV['VOLUME_PATH'] ? ENV['VOLUME_PATH'] : Dir.pwd
+  cache_path  = "#{base_path}/cache"
+  out_path    = "#{base_path}/out"
+  ignore_path = "#{base_path}/.trivyignore"
 
   FileUtils.mkdir_p(out_path)
   if config['registory_domain']
@@ -34,10 +35,9 @@ def scan_image(image_name, image_remove: false)
   ignore_cves += config['ignore_cves'] || []
   File.open(ignore_path, mode = 'w') { |f| f.write(ignore_cves.join("\n")) }
 
-  result = {}
   cmd = [
     '--cache-dir',
-    './cache',
+    cache_path,
     'image',
     '--ignore-unfixed',
     '--no-progress',
@@ -48,22 +48,19 @@ def scan_image(image_name, image_remove: false)
     '--exit-code',
     '1',
     '--ignorefile',
-    './.trivyignore',
+    ignore_path,
     '--output',
-    './out/result.json',
+    File.join(out_path, 'result.json'),
     image_name
   ]
 
   File.delete(File.join(out_path, 'result.json')) if File.exist?(File.join(out_path, 'result.json'))
   if which('trivy')
-    cmd.each_with_index do |_, i|
-      cmd[i].gsub!(%r{\./out}, out_path)
-    end
     system("trivy #{cmd.join(' ')}")
   else
     @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
     cmd.each_with_index do |_, i|
-      cmd[i].gsub!(%r{\./}, '/opt/')
+      cmd[i].gsub!(base_path, '/opt')
     end
 
     vols = []
