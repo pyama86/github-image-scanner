@@ -97,7 +97,7 @@ config['orgs'].each do |o|
           created << "- [ ] [#{image_name}](#{normalize_issue_url(issue.url)})"
         end
       rescue StandardError => e
-        logger.error "#{o}/#{r} happend error #{e}"
+        logger.error "#{o}/#{r} happened error #{e}"
         logger.error e.backtrace.join("\n")
       end
     end
