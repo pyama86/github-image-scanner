@@ -56,6 +56,9 @@ def scan_image(image_name, image_remove: false)
 
   File.delete(File.join(out_path, 'result.json')) if File.exist?(File.join(out_path, 'result.json'))
   if which('trivy')
+    cmd.each_with_index do |_, i|
+      cmd[i].gsub!(%r{\./out}, out_path)
+    end
     system("trivy #{cmd.join(' ')}")
   else
     @trivy ||= Docker::Image.create('fromImage' => 'aquasec/trivy:latest')
