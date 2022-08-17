@@ -43,6 +43,8 @@ def scan_image(image_name, image_remove: false)
     '--no-progress',
     '-s',
     'HIGH,CRITICAL',
+    '--security-checks',
+    'vuln',
     '--format',
     'json',
     '--exit-code',
