@@ -94,8 +94,8 @@ end
 # @param cve_summary [Hash]
 # @param ignore_vulnerabilities [Array]
 # @return [Array]
-def scan_result_to_issue_md(result, cve_summay = {}, ignore_vulnerabilities = [])
-  return [nil, cve_summay] if result.empty? || result['Results'].none? { |r| r.key?('Vulnerabilities') }
+def scan_result_to_issue_md(result, cve_summary = {}, ignore_vulnerabilities = [])
+  return [nil, cve_summary] if result.empty? || result['Results'].none? { |r| r.key?('Vulnerabilities') }
 
   issue_txt = "# These images have vulnerabilites.\n"
   labels = %w[target type name path installed fixed cve]
@@ -106,16 +106,16 @@ def scan_result_to_issue_md(result, cve_summay = {}, ignore_vulnerabilities = []
     vulnerabilites = r['Vulnerabilities'].map do |v|
       next if ignore_vulnerabilities.include? v['VulnerabilityID']
 
-      cve_summay[v['VulnerabilityID']] ||= {}
+      cve_summary[v['VulnerabilityID']] ||= {}
 
-      cve_summay[v['VulnerabilityID']]['Type'] = r['Type']
-      cve_summay[v['VulnerabilityID']]['PkgName'] = v['PkgName']
+      cve_summary[v['VulnerabilityID']]['Type'] = r['Type']
+      cve_summary[v['VulnerabilityID']]['PkgName'] = v['PkgName']
 
-      cve_summay[v['VulnerabilityID']]['PrimaryURL'] = v['PrimaryURL']
+      cve_summary[v['VulnerabilityID']]['PrimaryURL'] = v['PrimaryURL']
 
-      cve_summay[v['VulnerabilityID']]['Artifacts'] ||= []
-      unless cve_summay[v['VulnerabilityID']]['Artifacts'].include?(result['ArtifactName'])
-        cve_summay[v['VulnerabilityID']]['Artifacts'].push(result['ArtifactName'])
+      cve_summary[v['VulnerabilityID']]['Artifacts'] ||= []
+      unless cve_summary[v['VulnerabilityID']]['Artifacts'].include?(result['ArtifactName'])
+        cve_summary[v['VulnerabilityID']]['Artifacts'].push(result['ArtifactName'])
       end
 
       [
@@ -133,7 +133,7 @@ def scan_result_to_issue_md(result, cve_summay = {}, ignore_vulnerabilities = []
   end
 
   issue_txt << MarkdownTables.make_table(labels, data, is_rows: true)
-  [issue_txt, cve_summay]
+  [issue_txt, cve_summary]
 end
 
 # @param cve_summary [Hash]
