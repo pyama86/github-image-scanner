@@ -57,6 +57,7 @@ config['orgs'].each do |o|
               id
               repository {
                 name
+                isArchived
               }
               versions(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
                 nodes {
@@ -76,6 +77,7 @@ config['orgs'].each do |o|
     data.to_h[type]['packages']['edges'].each do |i|
       r = i['node']['repository']['name']
       next if i['node']['versions']['nodes'].empty?
+      next if i['node']['repository']['isArchived']
 
       begin
         imn = i['node']['name']
