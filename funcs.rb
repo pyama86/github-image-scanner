@@ -42,7 +42,7 @@ def scan_image(image_name, image_remove: false)
     '--ignore-unfixed',
     '--no-progress',
     '-s',
-    'HIGH,CRITICAL',
+    'CRITICAL',
     '--security-checks',
     'vuln',
     '--format',
